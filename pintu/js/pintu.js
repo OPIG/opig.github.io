@@ -88,7 +88,7 @@ var pintu = function(url){
 				html += '<span style="font-weight:bold;margin:0 30px;font-size:18px;">拼图游戏</span>';
 				html += '计数<span class="click_num">'+_this.click_num+'</span>';
 				html += '<button style="margin:0 50px;" onclick="window.location.reload();">重新开始</button>';
-				html += 'Author : 李忠 | blog : <a style="color:#999;" href="http://www.qttc.net" target="_blank">www.qttc.net</a>';	
+				 //html += 'Author : 李忠 | blog : <a style="color:#999;" href="http://www.qttc.net" target="_blank">www.qttc.net</a>';	
 				//html += '<span class="info"></span>';	
 			html +='</div>';
 
