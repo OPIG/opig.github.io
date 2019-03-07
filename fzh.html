@@ -6,25 +6,31 @@
          body{background-color:#151515;width:100%;height: 100%;font-size:16px;line-height: 24px;font-family:-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;}
 .btn{margin-top:10px;background-color:#2e6da4;border:1px solid transprent;padding: 6px 12px;display: inline-block;text-align:center;border-radius: 4px;color:#fff;}
      </style>
-<script>
-var btn_one=document.getElementById("btn_one");
-var btn_two=document.getElementById("btn_two");
-var btn_three=document.getElementById("btn_three");
-btn_one.addEventListener("click",function(){
-alert("呸呸呸，我信你个鬼！");
-});
-btn_two.addEventListener("click",function(){
-alert("嗯，还算有点自知之明");
-      });
-btn_one.addEventListener("click",function(){
-alert("就是屌丝，哪里还有其他");
-});
-</script>
+
    </head>
+   
    <body>
         <h3 style="color:#b5e853;">请回答我：方中豪是谁？</h3>
         <button class="btn btn-one" id="btn_one">答案一:帅哥一枚</button>
         <button class="btn btn-two" id="btn_two">答案二:屌丝</button>
         <button class="btn btn-three" id="btn_three">答案三：其他</button>
    </body>
+   <script tyle="text/script">
+var btn_one=document.getElementById("btn_one");
+var btn_two=document.getElementById("btn_two");
+var btn_three=document.getElementById("btn_three");
+btn_one.addEventListener("click",function(){
+alert("呸呸呸，我信你个鬼！");
+return;
+});
+btn_two.addEventListener("click",function(){
+alert("嗯，还算有点自知之明");
+return;
+      });
+	  
+btn_three.addEventListener("click",function(){
+alert("就是屌丝，哪里还有其他");
+return;
+});
+</script>
 </html>
