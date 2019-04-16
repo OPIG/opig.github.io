@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>XPath Test</title>
+</head>
+<body>
+
+    <script language="javascript" type="text/javascript">
+        var orderDoc;
+        //获取xml文件  
+        function loadXmlFile(xmlFile) {
+            var xmlDom = null;
+            if (window.ActiveXObject) {
+                xmlDom = new ActiveXObject("Microsoft.XMLDOM");
+                xmlDom.async = false;
+                xmlDom.load(xmlFile) || xmlDom.loadXML(xmlFile);//如果用的是XML字符串//如果用的是xml文件  
+            } else if (document.implementation && document.implementation.createDocument) {
+                var xmlhttp = new window.XMLHttpRequest();
+                //xmlhttp.open("GET", xmlFile, false);
+                //xmlhttp.send(null);
+                xmlDom = xmlhttp.responseXML;
+            } else {
+                xmlDom = null;
+            }
+            return xmlDom;
+        }
+       
+          
+
+
+        //var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+        var xmlDoc = loadXmlFile('http://www.cnblogs.com/fdszlzl/archive/2009/06/02/1494836.html');
+        //xmlDoc.async="false";
+        
+        xmlDoc.load("http://www.cnblogs.com/fdszlzl/archive/2009/06/02/1494836.html");
+xmlDoc.setProperty("SelectionLanguage", "XPath");
+    var sPath = "/messages/message[1]//books/*[local-name()='book']";
+var bookNodes = xmlDoc.selectNodes(sPath);
+
+document.write("<ul>");
+for ( var i = 0; i < bookNodes.length; i++) {
+    document.write("<li>" + bookNodes[i].childNodes[0].text + "</li>");
+    alert(1);
+}
+document.write("</ul>");
+    </script>
+
+</body>
+</html>

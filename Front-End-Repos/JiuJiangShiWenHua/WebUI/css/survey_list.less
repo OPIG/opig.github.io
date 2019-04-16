@@ -1,0 +1,87 @@
+﻿.survey-list {
+    overflow: hidden;
+}
+
+.survey-list .list {
+    overflow: hidden;
+    padding: 30px 0 0;
+    width: 100%;
+}
+
+.survey-list .list li {
+    overflow: hidden;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+}
+
+.survey-list .list li .tit {
+    border-bottom: 1px solid #ececec;
+    overflow: hidden;
+}
+
+.survey-list .list li .tit h3 {
+    font: 14px/46px @font_f;
+    margin: 0;
+    padding: 0;
+    .ellipsis();
+
+    i {
+        color: #686868;
+        font: italic 14px/46px @font_f;
+    }
+
+    a {
+        color: #686868;
+        font: 14px/46px @font_f;
+    }
+}
+
+.survey-list .list li.e {
+    border: 0px;
+
+    .tit h3 {
+        a, i {
+            color: #92cb8f;
+        }
+    }
+}
+
+
+.survey-list .list li .open {
+    background: #f0f0f0 none repeat scroll 0 0;
+    border: 1px solid #e5e5e5;
+    padding: 10px;
+    display: none;
+}
+
+.survey-list .list li.e .open {
+    display: block;
+}
+
+.survey-list .list li .open p {
+    overflow: hidden;
+}
+
+.survey-list .list li .open p span {
+    color: #666666;
+    float: left;
+    font: 14px/28px @font_f;
+}
+
+.survey-list .list li .open p span i {
+    color: #70a83e;
+}
+
+.survey-list .list li .open a {
+    background: #92cb8f none repeat scroll 0 0;
+    border-radius: 2px;
+    color: #fff;
+    display: block;
+    font: 14px/28px @font_f;
+    text-align: center;
+    width: 85px;
+
+    &:hover {
+        background-color: #70a83e;
+    }
+}

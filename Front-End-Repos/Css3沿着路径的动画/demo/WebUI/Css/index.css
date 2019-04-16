@@ -1,0 +1,23 @@
+﻿body { }
+.header { background: #60f; }
+.container { width: 100%; }
+.container .box { width: 300px; height: 300px; border-radius: 200px; background:#abc;margin:50px auto 0;padding:20px;}
+
+.avatar {
+    animation: spin 6s infinite linear;
+    transform-origin:center 300%; /* 150px = path radius */
+    background:#fb0;
+    width:50px;
+    height:50px;
+   border-radius:25px;
+    margin:0px auto;
+}
+@keyframes spin {
+    to { transform: rotate(1turn); }
+}
+@-moz-keyframes spin {
+    to { -moz-transform: rotate(1turn); }
+}
+@-webkit-keyframes spin {
+    to { -webkit-transform: rotate(1turn); }
+}

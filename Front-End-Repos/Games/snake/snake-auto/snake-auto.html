@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>自动寻路贪吃蛇</title>
+    <script type="text/javascript" src="Astar.js"></script>
+</head>
+<body>
+<canvas id="myCanvas" width="540 " height="540" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+<div>
+    <button onclick="startComputerGame();">
+        重开
+    </button>
+</div>
+<div>
+    <span>长度:</span>
+    <span id="score">0</span>
+</div>
+<div>
+    <span id="dead"></span>
+</div>
+
+<script>
+    var ctx = document.getElementById("myCanvas").getContext("2d");
+    var pointSize = 30;
+    var length = 18
+    //蛇
+    var snake = [{
+        x: 10,
+        y: 9
+    }, {
+        x: 10,
+        y: 8
+    }, {
+        x: 10,
+        y: 7
+    }, {
+        x: 10,
+        y: 6
+    }, {
+        x: 10,
+        y: 5
+    }];
+    //flood食物
+    var flood = null;
+    var grid = null;
+    var drop = null
+    var score = document.getElementById("score");
+    var dead = document.getElementById("dead");
+    //给蛇加上阴影效果
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = "blue";
+    var id = null
+    main()
+    function init() {
+        window.clearInterval(id)
+        ctx.clearRect(0, 0, pointSize * length, pointSize * length);
+        snake = [{
+            x: 10,
+            y: 9
+        }, {
+            x: 10,
+            y: 8
+        }];
+        flood = null;
+        dead.innerHTML = '';
+    }
+
+    function startComputerGame() {
+//        if (auto)
+//            return;
+        //循环，间隔为30毫秒
+        init();
+        main()
+    }
+
+    function main() {
+        try {
+            genFood()
+            id = setInterval(moveSnake, 30);
+        } catch (err) {
+            console.log('err ', err.stack)
+            window.clearInterval(id);
+            dead.innerHTML = '挂啦';
+        }
+    }
+
+    /**
+     * 判断游戏是否结束
+     * @param head
+     * @returns {boolean}
+     */
+    function isGameOver(head) {
+        // 撞到身体
+        if (hitSnake(head, 0)) {
+            return true;
+        }
+        // 撞到墙
+        if (head.x < 0 || head.x >= length || head.y < 0 || head.y >= length) {
+            return true;
+        }
+        return false
+    }
+
+    var drawSnake = function () {
+        //清空屏幕
+        ctx.clearRect(0, 0, pointSize * length, pointSize * length);
+        //如果有食物，则绘制食物
+        if (flood) {
+            ctx.fillStyle = "#ff00ff";
+            ctx.fillRect(flood.x * pointSize, flood.y * pointSize, pointSize, pointSize);
+            ctx.fillStyle = "#000000";
+        }
+        // 蛇头
+        ctx.fillStyle = "#d45611";
+        ctx.fillRect(snake[0].x * pointSize, snake[0].y * pointSize, pointSize, pointSize);
+        ctx.fillStyle = "#000000";
+        for (var i = 1; i < snake.length - 1; i++) {
+            ctx.fillRect(snake[i].x * pointSize, snake[i].y * pointSize, pointSize, pointSize);
+        }
+        //蛇尾
+        ctx.fillStyle = "#389334";
+        ctx.fillRect(snake[snake.length - 1].x * pointSize, snake[snake.length - 1].y * pointSize, pointSize, pointSize);
+        ctx.fillStyle = "#000000";
+        //drawPaths()
+
+    };
+
+    function drawPaths() {
+        console.log('drawPaths', paths.length);
+        ctx.fillStyle = "#0000ff";
+        for (var i = 0; i < paths.length - 1; i++)
+            ctx.fillRect(paths[i][0] * pointSize, paths[i][1] * pointSize, pointSize, pointSize);
+        ctx.fillStyle = "#000000";
+    }
+
+    function nodeEqual(nodeA, nodeB) {
+        return nodeA.x === nodeB.x
+                && nodeA.y === nodeB.y
+    }
+
+    //如果没有食物，则在随机位置上加入一粒食物
+    function genFood() {
+        while (flood == null || hitSnake(flood))
+            flood = {
+                y: (Math.random() * length >>> 0),
+                x: (Math.random() * length >>> 0)
+            };
+    }
+
+    function moveSnake() {
+        try {
+            var next = getNext()
+            if (!next) return
+            if (nodeEqual(next, flood || {})) {
+                //吃了食物
+                snake.unshift(flood)
+                flood = null
+                genFood()
+            } else {
+                //只是移动
+                snake.unshift(next)
+                drop = snake.pop();
+            }
+            //绘制蛇
+            drawSnake();
+            //分数
+            score.innerHTML = snake.length;
+            //判断游戏是否结束
+            if (isGameOver(snake[0])) {
+                window.clearInterval(id);
+                dead.innerHTML = '挂B啦';
+                return;
+            }
+        } catch (err) {
+            console.log('err ', err.stack)
+            window.clearInterval(id);
+            dead.innerHTML = '挂啦';
+        }
+
+    }
+    //判断指定位置是否与蛇重叠
+    function hitSnake(flood, j) {
+        for (var i = 0; i < snake.length; i++)
+            if (j != i && nodeEqual(snake[i], flood))
+                return true;
+        return false;
+    }
+
+    var paths = []
+    /**
+     * 找到下一步单元格
+     * @returns {{x: *, y: *}}
+     */
+    function getNext() {
+        if (paths.length === 0) {
+            paths = genPaths()
+            paths.shift()
+        }
+        /**
+         * 在 flow_tail 状态下, 每一步都要尝试去找食物。
+         */
+        if (flow_tail) {
+//            console.log('scan ing');
+            paths = genPaths()
+            paths.shift()
+        }
+        var n = paths.shift()
+        if (!n) {
+            window.clearInterval(id);
+            dead.innerHTML = '无路可走';
+            return null;
+        }
+        return {x: n[0], y: n[1]};
+    }
+
+    /**
+     * 路线选取
+     * @type {boolean}
+     */
+    var flow_tail = false
+    function genPaths() {
+        var find = getAstarPath(snake[0], flood)
+        // 去不到食物那边 那就跟着尾巴跑
+        if (find.length <= 2) {
+            flow_tail = true
+            return getAstarPath(snake[0], drop, true)
+        }
+        var find2 = genNextPaths(find)
+        // 走了下一步后 无法连接尾巴 放弃
+        if (find2.length <= 2) {
+//            console.log(' 提前判断了');
+            flow_tail = true
+            return getAstarPath(snake[0], drop, true)
+        } else {
+            flow_tail = false
+            return find
+        }
+    }
+
+    /**
+     * 找到两点之间的路径
+     * @param start
+     * @param end
+     * @param tail
+     * @returns {*}
+     */
+    function getAstarPath(start, end) {
+        var path = AStar(initGrid(snake), [start.x, start.y], [end.x, end.y], "Manhattan")
+        return path
+    }
+
+    // 试着走一步 看能否连接尾巴
+    function genNextPaths(temp_paths) {
+        // clone
+        var fakeSnake = snake.concat([])
+        for (var i = 1; i < temp_paths.length; i++) {
+            fakeSnake.unshift({x: temp_paths[i][0], y: temp_paths[i][1]})
+        }
+        fakeSnake = fakeSnake.slice(0, snake.length + 2)
+        var end = fakeSnake.pop()
+        return AStar(initGrid(fakeSnake), [fakeSnake[0].x, fakeSnake[0].y], [end.x, end.y], "Manhattan")
+    }
+
+    function initGrid(tempSnake) {
+        var grid = []
+        for (var i = 0; i < length; i++) {
+            grid[i] = new Array(length);
+            for (var j = 0; j < length; j++) {
+                grid[i][j] = 0
+                //grid[i][j] = (j * i) % 7 ? Math.floor(Math.random() * 200) % 2 : 0;
+            }
+        }
+        for (var i = 1; i < tempSnake.length; i++) {
+            // 这个 Astart 算法好坑爹啊  x 和 y 反过来的
+            grid[tempSnake[i].y][tempSnake[i].x] = 1
+        }
+        return grid
+    }
+
+</script>
+</body>
+</html>

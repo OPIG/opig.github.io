@@ -1,0 +1,54 @@
+﻿body { }
+.header { width: calc(100% - 20px*2); width: -moz-calc(100% - 20px*2); width: -webkit-calc(100% - 20px*2); width: -ms-calc(100% - 20px*2); width: -o-calc(100% - 20px*2); background: #f60; padding: 20px; }
+.container { width: 100%; background: #eee; }
+.cont_left { float: left; width: calc(75% - 40px); width: -moz-calc(75% - 40px); width: -webkit-calc(75% - 40px); width: -o-calc(75% - 40px); width: -ms-calc(75% - 40px); background: #60f; padding: 20px; }
+.cont_right { float: right; width: calc(25% - 60px); width: -moz-calc(25% - 60px); width: -webkit-calc(25% - 60px); width: -ms-calc(25% - 60px); width: -o-calc(25% - 60px); background: #06f; padding: 20px; }
+
+.cont_right li a{font:14px/24px 'Microsoft YaHei';color:#fff;text-decoration:none;}
+   
+
+
+.cont_right ul{
+  width:100px;
+  height:300px;
+  list-style:none;
+  border-radius: 0 0 100px 100px;
+  border: 1px solid #033a52;
+}
+.cont_right ul li:nth-child(1) {
+  background-color: #4dbded;
+}
+.cont_right ul li:nth-child(2){
+  background-color: #2f9bc9;
+}
+.cont_right ul li:nth-child(3) {
+  background-color: #136182;
+}
+.cont_right ul li:nth-child(4) {
+  background-color: #033a52;
+  border-radius: 0 0 100px 100px;
+}
+.cont_right ul li:nth-child(4){
+  height: -moz-calc(300px/2 - 30px);
+  height: -webkit-calc(300px/2 - 30px);
+  height: calc(300px/2 - 30px);    
+/* Gesamtwert von 120px entspricht 40% der Füllmenge */
+}
+.cont_right ul li:nth-child(3){
+  height: -moz-calc(300px/10 + 60px);
+  height: -webkit-calc(300px/10 + 60px);
+  height: calc(300px/10 + 60px);
+/* Gesamtwert von 90px entspricht 30% der Füllmenge */
+}
+.cont_right ul li:nth-child(2) {
+  height: -moz-calc(300px/10*2);
+  height: -webkit-calc(300px/10*2);
+  height: calc(300px/10*2);    
+/* Gesamtwert von 60px entspricht 20% der Füllmenge */
+}
+.cont_right ul li:nth-child(1){
+  height: -moz-calc(300px/10);
+  height: -webkit-calc(300px/10);
+  height: calc(300px/10);    
+/* Gesamtwert von 30px entspricht 10% der Füllmenge */
+}

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="WebUI/js/knockout-3.4.2.debug.js"></script>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        .show { animation: move  1s; -ms-animation: move  1s;-webkit-animation-fill-mode:forwards; }
+
+        @keyframes move {
+
+            0% { transform: translateY(0px); }
+            100% { opacity: 0.5; transform: translateY(300px); }
+        }
+         @-ms-keyframes move {
+
+            0% { -ms-transform: -ms-translateY(0px); }
+            100% { opacity: 0.5; -ms-transform: -ms-translateY(300px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>FirstName:<span data-bind="text:firstName()=='Yuan'?firstName:'<i>Hello, world!</i>'"></span></p>
+        <p>LastName:<span data-bind="text:lastName"></span></p>
+        <p>FullName:<input data-bind="value:fullName,valueUpdate:'afterkeydown'" /></p>
+        <p>Input<input data-bind="value:attemptedValue,event:{keypress:keyPress}" /></p>
+        <p data-bind="visible:!IsValid()">It's not a number!</p>
+        <div data-bind="click:doPClick">
+            <a data-bind="attr:{href:'http://www.baidu.com',target:IsValid()?'_sd':'_parent'},click:doClick,text:fullName,clickBubble:false,event:{mouseover:showDetail,mouseleave:hiddenDetail}"></a>
+            hahah
+        </div>
+        <p class="detail" data-bind="css:{show:flag()==true}">This is detailPart.</p>
+        <div>测试单向绑定：<input data-bind="value:secondValue,event:{keyup:keyUp}"/></div>
+    </div>
+    <script type="text/javascript">
+        var viewModel = {
+            firstName: ko.observable('Yuan'),
+            lastName: ko.observable('Atom'),
+            acceptedNumericValue: ko.observable(123),
+            IsValid: ko.observable(true),
+            secondValue:'Hello,World',
+            doClick: function () {
+                alert(this.firstName());
+                viewModel.secondValue="KnockOutJs";
+            },
+            doPClick: function () {
+                alert(this.lastName());
+            },
+            keyUp: function () {
+                alert(viewModel.secondValue);// = "KnockOutJs";
+            }
+           
+        };
+        var flag = ko.observable(false);
+        function showDetail() {
+            flag(true);
+            // alert(flag);
+        };
+        function hiddenDetail() {
+            flag(false);
+        }
+        function keyPress() {
+            console.log("哈哈哈");
+        }
+        viewModel.fullName = ko.dependentObservable({
+            read: function () {
+                return this.firstName() + " " + this.lastName();
+            },
+            write: function (value) {
+                var lastSpacePos = value.lastIndexOf(' ');
+                if (lastSpacePos > 0) {
+                    this.firstName(value.substring(0, lastSpacePos));
+                    this.lastName(value.substring(lastSpacePos + 1));
+                }
+            },
+            owner: viewModel
+        })
+        viewModel.attemptedValue = ko.dependentObservable({
+            read: viewModel.acceptedNumericValue,
+            write: function (value) {
+                if (isNaN(value)) {
+                    this.IsValid(false);
+                }
+                else {
+                    this.IsValid(true);
+                    this.acceptedNumericValue(value);
+
+                }
+            },
+            owner: viewModel
+        })
+        ko.applyBindings(viewModel);
+    </script>
+</body>
+</html>

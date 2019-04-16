@@ -1,0 +1,118 @@
+﻿.commonque-list {
+    overflow: hidden;
+
+    .search-box {
+        overflow: hidden;
+        padding: 0 60px;
+    }
+
+    .search-box .tab {
+        margin: 108px 0 0;
+        overflow: hidden;
+    }
+
+    .search-box .tab a {
+        color: #333333;
+        display: block;
+        float: left;
+        font: 16px/26px @font_f;
+        margin: 0 20px;
+        padding: 0 5px;
+    }
+
+    .search-box .tab a:hover, .search-box .tab .e {
+        border-bottom: 3px solid #9b2633;
+        color: #9b2633;
+    }
+
+    .search {
+        background: #fff none repeat scroll 0 0;
+        .border("1px"; "solid";"#d2d2d2");
+        border-radius: 38px;
+        /*box-shadow: 0 3px 3px rgba(1, 1, 1, 0.16) inset;*/
+        height: 42px;
+        margin: 29px 0 0;
+        overflow: hidden;
+        padding: 0 15px;
+    }
+
+    .search .text {
+        height: 36px;
+        overflow: hidden;
+        padding: 6px 0;
+        width: 70%;
+    }
+
+    .search .text input {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+        color: #979595;
+        font: 14px/24px @font_f;
+        width: 100%;
+    }
+
+    .search .button {
+        background: rgba(0, 0, 0, 0) url("../../WebUI/images/button1.png") no-repeat scroll 0 0;
+        height: 25px;
+        margin: 7px 0 0;
+        width: 26px;
+    }
+
+    .search .button input {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+        height: 25px;
+        width: 26px;
+    }
+
+    .list {
+        overflow: hidden;
+        padding: 30px 0 0;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .list li {
+        overflow: hidden;
+    }
+
+    .list li .tit {
+        border-bottom: 1px solid #ececec;
+        overflow: hidden;
+    }
+
+    .list li .tit h3 {
+        color: #686868;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .list li .tit h3 a {
+        color: #333333;
+        font: 14px/43px @font_f;
+    }
+
+    .list li .tit h3 i {
+        color: #686868;
+        font-family: @font_f;
+        font-size: 18px;
+    }
+
+    .list li .open {
+        background: #f0f0f0 none repeat scroll 0 0;
+        border: 1px solid #e5e5e5;
+        padding: 10px;
+        display: none;
+    }
+
+    .list li.e .open {
+        display: block;
+    }
+
+    .list li .open p {
+        color: #666666;
+        font: 14px/26px @font_f;
+        margin: 0;
+        text-indent: 2em;
+    }
+}

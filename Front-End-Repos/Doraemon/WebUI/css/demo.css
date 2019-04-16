@@ -1,0 +1,511 @@
+﻿/*#region wrapper*/
+.section
+{
+    width: 540px;
+    height: 560px;
+    border: 1px solid #ccc;
+    padding: 10px 10px 10px 100px;
+    margin: 10px;
+}
+
+.wrapper
+{
+    margin: 0px auto;
+}
+
+.doraemon
+{
+    position: relative;
+    margin: 0px auto;
+}
+/*#endregion*/
+
+/*#region Head part*/
+.head
+{
+    width: 320px;
+    height: 300px;
+    border-radius: 150px;
+    border: 2px solid #555;
+    background: #07bbee;
+    background: -webkit-radial-gradient(right top,#fff 10%,#07bbee 20%,#10a6ce 75%,#000);
+    background: -moz-radial-gradient(right top,#fff 10%,#07bbee 20%,#10a6ce 75%,#000);
+    background: -ms-radial-gradient(right top,#fff 10%,#07bbee 20%,#10a6ce 75%,#000);
+    box-shadow: -5px 10px 15px 0px rgba(0, 0, 0, 0.45);
+}
+
+/*#region eyes*/
+.head .eyes
+{
+    position: relative;
+}
+
+.head .eyes .eye
+{
+    position: absolute;
+    z-index: 10;
+    width: 72px;
+    height: 82px;
+    border: 2px solid #000;
+    border-radius: 35px;
+    top: 40px;
+    background: #fff;
+}
+
+.head .eyes .left
+{
+    left: 82px;
+}
+
+.head .eyes .right
+{
+    left: 156px;
+}
+
+.head .eyes .eye .black
+{
+    width: 14px;
+    height: 14px;
+    background: #000;
+    border-radius: 10px;
+    position: absolute;
+    top: 36px;
+}
+
+.head .eyes .eye .eleft
+{
+    left: 50px;
+}
+
+.head .eyes .eye .eright
+{
+    left: 7px;
+}
+/*#endregion*/
+/*#region face*/
+.face
+{
+    position: relative;
+}
+
+.face .white
+{
+    width: 265px;
+    height: 195px;
+    border-radius: 150px;
+    position: absolute;
+    top: 75px;
+    left: 25px;
+    background: #fff;
+    /*此放射渐变也是使脸的左下角暗一些，看上去更真实*/
+    background: -webkit-radial-gradient(right top,#fff 75%,#eee 80%,#999 90%,#444);
+    background: -moz-radial-gradient(right top,#fff 75%,#eee 80%,#999 90%,#444);
+    background: –ms-radial-gradient(right top,#fff 75%,#eee 80%,#999 90%,#444);
+}
+
+.face .nose
+{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background: #c93300;
+    border: 2px solid #000;
+    position: absolute;
+    left: 140px;
+    top: 110px;
+    z-index: 3;
+}
+
+.face .nose .light
+{
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    box-shadow: 19px 8px 5px #fff;
+}
+
+.face .nose_line
+{
+    width: 3px;
+    height: 100px;
+    background: #000;
+    position: absolute;
+    left: 155px;
+    top: 143px;
+    z-index: 3;
+}
+
+.face .mouth
+{
+    width: 220px;
+    height: 400px;
+    position: absolute;
+    left: 45px;
+    top: -160px;
+    border-bottom: 3px solid #333;
+    border-radius: 120px;
+}
+
+.face .whiskers
+{
+    width: 220px;
+    height: 80px;
+    position: absolute;
+    left: 45px;
+    top: 120px;
+    background: #fff;
+    border-radius: 20px;
+}
+
+.face .whiskers .whisker
+{
+    width: 60px;
+    height: 2px;
+    background: #333;
+    position: absolute;
+    z-index: 2;
+}
+
+/*右上胡子*/
+.doraemon .whiskers .rTop
+{
+    left: 165px;
+    top: 25px;
+}
+/*右中胡子*/
+.doraemon .whiskers .rMiddle
+{
+    left: 167px;
+    top: 45px;
+}
+/*右下胡子*/
+.doraemon .whiskers .rBottom
+{
+    left: 165px;
+    top: 65px;
+}
+/*左上胡子*/
+.doraemon .whiskers .lTop
+{
+    left: 0;
+    top: 25px;
+}
+/*左中胡子*/
+.doraemon .whiskers .lMiddle
+{
+    left: -2px;
+    top: 45px;
+}
+/*左下胡子*/
+.doraemon .whiskers .lBottom
+{
+    left: 0;
+    top: 65px;
+}
+
+.doraemon .whiskers .r160
+{
+    -webkit-transform: rotate(160deg);
+    -moz-transform: rotate(160deg);
+    -ms-transform: rotate(160deg);
+    -o-transform: rotate(160deg);
+    transform: rotate(160deg);
+}
+
+.doraemon .whiskers .r20
+{
+    -webkit-transform: rotate(200deg);
+    -moz-transform: rotate(200deg);
+    -ms-transform: rotate(200deg);
+    -o-transform: rotate(200deg);
+    transform: rotate(200deg);
+}
+/*#endregion*/
+
+/*#endregion*/
+
+/*#region Neck and Choker*/
+.choker
+{
+    width: 230px;
+    height: 20px;
+    background: #c40;
+    /*线性渐变 让围巾看上去更自然*/
+    background: -webkit-gradient(linear,left top,left bottom,from(#c40),to(#800400));
+    background: -moz-linear-gradient(center top,#c40,#800400);
+    background: -ms-linear-gradient(center top,#c40,#800400);
+    border: 2px solid #000;
+    border-radius: 10px;
+    position: relative;
+    left: 45px;
+    top: -40px;
+    z-index: 2;
+}
+
+.choker .bell
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    border: 2px solid #000;
+    background: #f9f12a;
+    position: absolute;
+    left: 90px;
+    top: 5px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f9f12a),color-stop(0.5, #e9e11a), to(#a9a100));
+    background: -moz-linear-gradient(top, #f9f12a, #e9e11a 75%,#a9a100);
+    background: -ms-linear-gradient(top, #f9f12a, #e9e11a 75%,#a9a100);
+    box-shadow: -5px 5px 10px rgba(0,0,0,0.25);
+}
+
+.choker .bell .bell_line
+{
+    width: 36px;
+    height: 3px;
+    border: 2px solid #000;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+}
+
+.choker .bell .bell_circle
+{
+    width: 10px;
+    height: 10px;
+    background: #000;
+    border-radius: 4px;
+    position: absolute;
+    top: 20px;
+    left: 15px;
+}
+
+.choker .bell .bell_under
+{
+    width: 2px;
+    height: 10px;
+    top: 30px;
+    left: 19px;
+    position: absolute;
+    background: #000;
+}
+
+.choker .bell .bell_light
+{
+    width: 12px;
+    height: 12px;
+    border-radius: 10px;
+    box-shadow: 19px 8px 5px #fff;
+    position: absolute;
+    top: -5px;
+    left: 5px;
+}
+/*#endregion*/
+
+/*#region bodys*/
+.bodys
+{
+    position: relative;
+    top: -310px;
+    background: red;
+}
+
+.bodys .body
+{
+    width: 220px;
+    height: 165px;
+    background: #07beea;
+    background: -webkit-gradient(linear,right top,left top,from(#07beea),color-stop(0.5, #0073b3),color-stop(0.75,#00b0e0), to(#0096be));
+    background: -moz-linear-gradient(right center,#07beea,#0073b3 50%,#00b0e0 75%,#0096be 100%);
+    background: -ms-linear-gradient(right center,#07beea,#0073b3 50%,#00b0e0 75%,#0096be 100%);
+    position: absolute;
+    left: 50px;
+    top: 265px;
+    border: 2px solid #000;
+    border-top: 0px;
+}
+
+.bodys .wraps
+{
+    width: 180px;
+    height: 160px;
+    border-radius: 200px;
+    background: #fff;
+    background: -webkit-gradient(linear, right top, left bottom, from(#fff),color-stop(0.75,#fff),color-stop(0.83,#eee),color-stop(0.90,#999),color-stop(0.95,#444), to(#000));
+    background: -moz-linear-gradient(right top,#fff,#fff 75%,#eee 83%,#999 90%,#444 95%,#000);
+    background: -ms-linear-gradient(right top,#fff,#fff 75%,#eee 83%,#999 90%,#444 95%,#000);
+    position: absolute;
+    left: 70px;
+    top: 250px;
+    border: 2px solid #000;
+}
+
+.bodys .pocket
+{
+    width: 120px;
+    height: 60px;
+    background: #fff;
+    background: -webkit-gradient(linear, right top, left bottom, from(#fff),color-stop(0.70,#fff),color-stop(0.75,#f8f8f8),color-stop(0.80,#eee),color-stop(0.88,#ddd), to(#fff));
+    background: -moz-linear-gradient(right top, #fff, #fff 70%,#f8f8f8 75%,#eee 80%,#ddd 88%, #fff);
+    background: -ms-linear-gradient(right top, #fff, #fff 70%,#f8f8f8 75%,#eee 80%,#ddd 88%, #fff);
+    border-radius: 0px 0px 60px 60px;
+    border: 2px solid #000;
+    position: absolute;
+    left: 100px;
+    top: 320px;
+}
+/*#endregion*/
+
+/*#region Hands*/
+.doraemon .hand_right, .doraemon .hand_left
+{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 272px;
+    left: 248px;
+}
+
+.doraemon .hand_right
+{
+}
+
+.doraemon .arm
+{
+    width: 80px;
+    height: 50px;
+    background: #07beea;
+    background: -webkit-gradient(linear, left top, left bottom, from(#07beea),color-stop(0.85,#07beea), to(#555));
+    background: -moz-linear-gradient(center top, #07BEEA, #07BEEA 85%, #555);
+    background: -ms-linear-gradient(center top, #07BEEA, #07BEEA 85%, #555);
+    border: 1px solid #000;
+    box-shadow: -10px 7px 10px rgba(0,0,0,0.35);
+    position: relative;
+    z-index: -1;
+}
+
+.hand_right .arm
+{
+    top: 17px;
+    -webkit-transform: rotate(35deg);
+    -moz-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    -o-transform: rotate(35deg);
+    transform: rotate(35deg);
+}
+
+.doraemon .circle
+{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    border: 2px solid #000;
+    background: #fff;
+    background: -webkit-gradient(linear, right top, left bottom, from(#fff),color-stop(0.5,#fff),color-stop(0.70,#eee),color-stop(0.8,#ddd), to(#999));
+    background: -moz-linear-gradient(right top, #fff, #fff 50%, #eee 70%, #ddd 80%,#999);
+    background: -ms-linear-gradient(right top, #fff, #fff 50%, #eee 70%, #ddd 80%,#999);
+    position: absolute;
+}
+
+.hand_right .circle
+{
+    left: 40px;
+    top: 32px;
+}
+
+.doraemon .arm_rewrite
+{
+    height: 45px;
+    width: 5px;
+    background: #07beea;
+    position: relative;
+}
+
+.hand_right .arm_rewrite
+{
+    top: -45px;
+    left: 22px;
+}
+
+.doraemon .hand_left
+{
+    left: -10px;
+}
+
+.doraemon .hand_left .arm
+{
+    transform: rotate(145deg);
+    -webkit-transform: rotate(145deg);
+    -moz-transform: rotate(145deg);
+    -ms-transform: rotate(145deg);
+    -o-transform: rotate(145deg);
+    background: #0096be; /*背光一面使用纯色，使其有立体感*/
+    box-shadow: 5px -7px 10px rgba(0, 0, 0, 0.25);
+    top: 17px;
+}
+
+.doraemon .hand_left .circle
+{
+    left: -20px;
+    top: 32px;
+}
+
+.doraemon .hand_left .arm_rewrite
+{
+    top: -45px;
+    left: 60px;
+    background: #0096be;
+}
+/*#endregion*/
+
+/*#region foots*/
+.doraemon .foot
+{
+    width: 280px;
+    height: 40px;
+    position: relative;
+    top: 55px;
+    left: 20px;
+}
+
+.doraemon .foot .foot_left, .doraemon .foot .foot_right
+{
+    width: 125px;
+    height: 30px;
+    background: #fff;
+    background: -webkit-gradient(linear, right top, left bottom, from(#fff),color-stop(0.75,#fff),color-stop(0.85,#eee), to(#999));
+    background: -moz-linear-gradient(right top, #fff, #fff 75%, #eee 85%, #999);
+    background: -ms-linear-gradient(right top, #fff, #fff 75%, #eee 85%, #999);
+    border: 2px solid #333;
+    box-shadow: -6px 0 10px rgba(0,0,0,0.35);
+    position: relative;
+    border-radius: 80px 60px 60px 40px;
+}
+
+.doraemon .foot .foot_left
+{
+    left: 8px;
+    top: 65px;
+}
+
+.doraemon .foot .foot_right
+{
+    top: 31px;
+    left: 141px;
+}
+
+.doraemon .foot .foot_rewrite
+{
+    width: 20px;
+    height: 10px;
+    background: #fff;
+    border: 2px solid #000;
+    border-bottom: none;
+    border-radius: 40px 40px 0 0;
+    position: relative;
+    left: 129px;
+    top: -13px;
+    background: -webkit-gradient(linear, right top, left bottom, from(#666),color-stop(0.83,#fff), to(#fff));
+    background: -moz-linear-gradient(right top, #666, #fff 83%, #fff);
+    background: -ms-linear-gradient(right top, #666, #fff 83%, #fff);
+}
+/*#endregion*/

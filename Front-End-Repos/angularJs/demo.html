@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="angular-1.6.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+
+        名: <input type="text"  ng-model="firstName"><br>
+        姓: <input type="text" ng-model="lastName"><br>
+        <br>
+        姓名: {{firstName + " " + lastName}}
+
+
+        <div ng-model="cols">{{cols}}</div>
+        <div ng-repeat="col in cols">{{col.name}}</div> 
+         
+
+    </div>
+</body>
+<script type="text/javascript">
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope,$http){
+    $scope.firstName= "John";
+    $scope.lastName = "Doe";
+    var rows = { schools: [{ name: "1", students: [{ name: "aa" }, { name: "bb" }] }, { name: "2", students: [{ name: "cc" }, { name: "dd" }] }]};
+    $scope.cols = rows;
+
+    // $http({
+    //     url: "",
+    //     parmas: {}
+    // }).success(function (data) {
+    // }).error();
+
+
+    //$http.post("",rows)
+
+    rows.schools.forEach(function (school) {
+        school.name
+    })
+
+});
+</script>
+
+
+</html>

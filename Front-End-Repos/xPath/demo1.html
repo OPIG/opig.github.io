@@ -1,0 +1,98 @@
+﻿<html>
+<head>
+    <style type="text/css">
+        .res { color: Red; }
+    </style>
+    <!--<script src="jquery.min.js" type="text/javascript"></script>-->
+    <script src="../public_libs/script/jQuery/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript">
+        var oldKey = "";
+        var index = -1;
+        var pos = new Array();
+        var oldCount = 0;
+
+        function search(flg) {
+            if (!flg) {
+                index++;
+                index = index == oldCount ? 0 : index;
+            }
+            else {
+                index--;
+                index = index < 0 ? oldCount - 1 : index;
+            }
+
+            $(".result").removeClass("res");
+            $("#toresult").remove();
+            var key = $("#key").val(); //取key值
+            if (!key) {
+                oldKey = "";
+                return; //key为空则退出
+            }
+
+            if (oldKey != key) {
+                //重置
+                index = 0;
+                $(".result").each(function () {
+                    $(this).replaceWith($(this).html());
+                });
+                pos = new Array();
+
+                $("body").html($("body").html().replace(new RegExp(key, "gm"), "<span id='result" + index + "' class='result'>" + key + "</span>")); // 替换
+
+                $("#key").val(key);
+                oldKey = key;
+                $(".result").each(function () {
+                    pos.push($(this).offset().top);
+                });
+                oldCount = $(".result").length;
+            }
+
+            $(".result:eq(" + index + ")").addClass("res");
+
+            $("body").scrollTop(pos[index]);
+        }
+    </script>
+</head>
+<body>
+    <div style="position: fixed; right: 20px; top: 0;">
+        <input id="key" type="text" style="width: 100px;" />
+        <input type="button" value="下一个" onclick="search()" />
+        <input type="button" value="上一个" onclick="search(1)" />
+    </div>
+    <div style="height: 50px;">
+    </div>
+    <div style="height: 200px;">
+        1待搜索的文本。
+    </div>
+    <div style="height: 200px;">
+        2待搜索的文本。
+    </div>
+    <div style="height: 200px;">
+        3待搜索的文本。
+    </div>
+    <div style="height: 200px;">
+        4待搜索的文本。
+    </div>
+    <div style="height: 200px;">
+        5待搜索的文本。
+    </div>
+    <div style="height: 200px;">
+        10美丽的家乡。
+    </div>
+    <div style="height: 200px;">
+        11美丽的家乡。
+    </div>
+    <div style="height: 200px;">
+        12美丽的家乡。
+    </div>
+    <div style="height: 200px;">
+        13美丽的家乡。
+    </div>
+    <div style="height: 200px;">
+        14美丽的家乡。
+    </div>
+    <div style="height: 200px;">
+        15美丽的家乡。
+    </div>
+</body>
+</html>

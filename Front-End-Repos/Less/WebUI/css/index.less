@@ -1,0 +1,164 @@
+﻿.borderRadius(@radius,@height,@width) {
+    background-color: lighten(@radius,20%);
+    width: @width;
+    height: @height;
+}
+
+.header {
+    .borderRadius(#0f0,100px,500px);
+}
+
+@base: #f938ab;
+@left: 0.5;
+
+.box-shadow(@style,@c) when (iscolor(@c)) {
+    -webkit-box-shadow: @style @c;
+    box-shadow: @style @c;
+}
+
+.box-shadow(@style,@alpha: 50%) when (isnumber(@alpha)) {
+    .box-shadow(@style,rgba(0,0,0,@alpha));
+}
+
+@bgColor: #900;
+
+.box {
+    color: staturate(@base,5%);
+    /*border-color: lighten(@base,30%);*/
+    width: 200px;
+    height: 100px;
+    margin-top: 10px;
+    position: relative;
+    border: 1px solid lighten(@base,30%);
+
+    div {
+        .box-shadow(0 0 5px);
+    }
+
+    .header;
+    @fnord: "I am fnord.";
+    @var1: "fnord";
+
+    &:after {
+        content: @@var1;
+        width: 100px;
+        height: 100px;
+        display: block;
+        position: absolute;
+        left: percentage(@left);
+        top: 0;
+        margin: 0 0 0 -50px;
+        border-radius: 50px;
+        border: 1px solid spin(saturate(@base,50%),-80);
+        background-color: @bgColor;
+        @bgColor: @testColor;
+        @testColor: #900;
+    }
+
+    a {
+        margin-right: 10px;
+        color: @link-color;
+        font: 16px/32px "微软雅黑";
+        margin-left: 100px;
+
+        &:hover {
+            /*color:@link-color-hover;*/
+            color: @testColor;
+        }
+    }
+}
+
+.boxx1 {
+    background-color: #f0f;
+}
+
+@media screen {
+    .boxx1 {
+        background-color: #0ff;
+    }
+
+
+    @media (min-width: 1023px) {
+        .boxx1 {
+            /*background-color: #fff;*/
+        }
+        /*.box:after:extend(.boxx) {
+    }*/
+    }
+}
+
+.box:after:extend(.boxx1) {
+}
+
+.mixin(@color) {
+    color-1: @color;
+}
+
+.mixin(@color; @padding: 2;@margin: 1) {
+    color-2: @color;
+    padding-2: @padding;
+}
+
+.mixin(@color; @padding; @margin: 2) {
+    color-3: @color;
+    padding-3: @padding;
+    margin: @margin @margin @margin @margin;
+}
+
+.demo(@color: #999;@rest...) {
+    color-dd: #fff;
+    color-d: @color;
+    margin: @rest;
+    border: @arguments;
+}
+
+.foot_box {
+    .demo(#900;2px;solid;);
+    width: 200px;
+    height: 100px;
+}
+
+
+
+
+.mixin1(@value) when (ispixel(@value)) {
+    width: @value;
+}
+
+.mixin1(@value) when (ispercent(@value)) {
+    width: @value;
+}
+
+.mixin1(@value) when (default()) {
+    padding: (@value / 5);
+}
+
+div-1 {
+    .mixin1(100px);
+}
+
+div-2 {
+    /* ... */
+    .mixin1(100%);
+    hh: round(1.67, 0);
+    hh: ceil(1.67);
+    hh: floor(1.67);
+    hh: sin(90deg);
+    hh: sin(30grad);
+    hh: atan(1);
+    hh: pi();
+    hh: 1/(25*25);
+    hh: min(3px, 1cm, 1mm, 1px);
+    @number: 10px;
+    hh: isnumber(@number);
+    tt: isunit(56px, "%");
+    @rgba: rgba(10, 20, 30, 0.5);
+    tt: isunit(7.8%, "%");
+    ta: hsva(90, 100%, 50%, 0.5);
+    tb: green(@rgba);
+    hb: contrast(#aaaaaa);
+    ht1: contrast(#222222, #101010);
+    ht2: contrast(#222222, #101010, #dddddd);
+    ht3: contrast(hsl(90, 100%, 50%), #000000, #ffffff, 40%);
+    ht4: contrast(hsl(90, 100%, 50%), #000000, #ffffff, 60%);
+}

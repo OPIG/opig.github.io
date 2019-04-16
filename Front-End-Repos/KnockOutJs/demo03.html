@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="WebUI/js/jquery-3.2.1.js"></script>
+    <script src="WebUI/js/jquery.tmpl.js"></script>
+    <script src="WebUI/js/knockout-3.4.2.debug.js"></script>
+
+    <style type="text/css">
+        .radio_box label { cursor: pointer; }
+        .radio_box input { cursor: pointer; }
+    </style>
+</head>
+<body>
+    <!--<p>Send me spam: <input type="checkbox" data-bind="checked: wantsSpam" /></p>
+    <div data-bind="visible: wantsSpam">
+        Preferred flavors of spam:
+        <div><input type="checkbox" value="cherry" data-bind="checked: spamFlavors" /> Cherry</div>
+        <div><input type="checkbox" value="almond" data-bind="checked: spamFlavors" /> Almond</div>
+        <div><input type="checkbox" value="msg" data-bind="checked: spamFlavors" /> Monosodium Glutamate</div>
+    </div>
+
+    <div class="radio_box" data-bind="visible:wantsSpam">
+        Preferred flavor of spam:
+        <div><input type="radio" data-bind="checked:spamFlavors" name="flavorGroup" value="cherry" id="ch" /><label for="ch">Cherry</label></div>
+        <div><input type="radio" data-bind="checked:spamFlavors" name="flavorGroup" value="almond" id="al" /><label for="al">Almond</label></div>
+        <div><input type="radio" name="flavorGroup" value="msg" data-bind="checked: spamFlavors" id="mg" /><label for="mg">Monosodium Glutamate</label>
+    </div>
+     </div>
+    <script type="text/javascript">
+
+        var viewModel = {
+            wantsSpam: ko.observable(true),
+          // spamFlavors: ko.observableArray(["cherry"]) // Initially checks the Cherry and Almond checkboxes
+
+            spamFlavors: ko.observable('cherry')
+    };
+
+    // ... then later ...
+        // viewModel.spamFlavors.push("msg"); // Now additionally checks the Monosodium Glutamate checkbox
+        viewModel.spamFlavors("msg");
+    ko.applyBindings(viewModel);
+    </script>-->
+    <!--  /*******************************************************/   -->
+    <!--<p>Choose some countries you'd like to visit: <select data-bind="options: availableCountries" size="5" multiple="true"></select></p>
+
+    <script type="text/javascript">
+    var viewModel = {
+        availableCountries: ko.observableArray(['France', 'Germany', 'Spain'])
+    };
+    viewModel.availableCountries.push("China","hah","demo");
+    ko.applyBindings(viewModel);
+    </script>-->
+    <!--  /*******************************************************/   -->
+    <!--<div class="dropdown_box">
+            <p>
+                Your Country:<select data-bind="options:availableCountries,optionsText:function(item){
+    return item.countryName+'(pop:'+item.countryPopulation+')'
+    }, value: selectedCountry, optionsCaption:'Choose...'"></select>
+            </p>
+            <div data-bind="visible:selectedCountry">
+                You have chosen &nbsp;<span data-bind="text:selectedCountry()?selectedCountry().countryName:'a country'"></span> &nbsp;with population:
+                <span data-bind="text:selectedCountry()?selectedCountry().countryPopulation:'Unknow'"></span>
+            </div>
+            <script type="text/javascript">
+                var country = function (name, population) {
+                    this.countryName = name;
+                    this.countryPopulation = population;
+                };
+                viewModel = {
+                    availableCountries: ko.observableArray([
+                        new country("UK", 65000000),
+                        new country("USA", ''),
+                        new country("Sweden", 29000000)
+                    ]),
+                    selectedCountry: ko.observable()
+                };
+
+                alert(viewModel.selectedCountry());
+                setTimeout(function () { console.log(viewModel.selectedCountry()); }, 2000);
+                ko.applyBindings(viewModel);
+            </script>
+        </div>-->
+    <!--//*********************************************************************-->
+    <!--<p>
+        Choose some countries you'd like to visit:
+        <select data-bind="options: availableCountries, selectedOptions: chosenCountries" size="5" multiple="false"></select>
+        <div data-bind="text:chosenCountries"></div>
+    </p>
+
+    <script type="text/javascript">
+    var viewModel = {
+        availableCountries: ko.observableArray(['France', 'Germany', 'Spain']),
+        chosenCountries: ko.observableArray(['Germany']) // Initially, only Germany is selected
+    };
+
+    // ... then later ...
+    viewModel.chosenCountries.push('France'); // Now France is selected too
+    ko.applyBindings(viewModel);
+    </script>-->
+    <!--//**********************************模板使用***********************************-->
+    <div class="template_box">
+        <div data-bind="template: 'personTemplate'"> </div>
+        <script id='personTemplate' type="text/html">
+            ${ name } is<span><b  data-bind="text:age"></b>${ age }</span><span> years old</span>
+            <button data-bind='click: addAge'>Make older</button>
+        </script>
+        <div><span data-bind="text:age"></span>hat</div>
+        <script type='text/javascript'>
+            var viewModel = {
+                name: ko.observable('Bert'),
+                age: ko.observable(78),
+                makeOlder: function () {
+                    this.age(this.age() + 1);
+                }
+            };
+            var addAge = function () {
+                viewModel.age(viewModel.age() + 1);
+                console.info(viewModel.age());
+            };
+            ko.applyBindings(viewModel);
+        </script>
+    </div>
+</body>
+</html>
