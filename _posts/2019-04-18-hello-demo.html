@@ -9,3 +9,9 @@ excerpt: >
 <h2>{{page.title}}</h2>
 <p>this is my first demo</p>
 <p>{{page.date | date_to_string}}</p>
+
+# array = [1,2,3,4,5,6]
+{% for item in array limit:2 offset:2 %}
+  {{ item }}
+{% endfor %}
+# results in 3,4
