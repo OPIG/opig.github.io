@@ -1,2 +1,2 @@
 theme: jekyll-theme-architect
-permalink: /:day/:title # permalink: /:categories/:year/:month/:day/:title/  if permalink:none then url should be /:categories/:title
+permalink: none # permalink: /:categories/:year/:month/:day/:title/  if permalink:none then url should be /:categories/:title
