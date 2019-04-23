@@ -13,7 +13,7 @@ title: this is my blog
     {%endfor%}
 </ul>
 <ul>
-    {% for post in site.Front-End-Repos %}
+    {% for post in site.pages %}
     <li>
         {{post.date | date_to_string}}
         <a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a>
