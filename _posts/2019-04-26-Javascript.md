@@ -1,3 +1,7 @@
+---
+category: [javascript]
+excerpt: ""
+---
 
 Array
 ===
