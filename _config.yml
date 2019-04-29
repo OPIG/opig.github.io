@@ -16,8 +16,8 @@ permalink: /:categories/:title.html # permalink special page url. # permalink: /
 exclude: [Front-End-Repos, github-page-knowledges] # exclude generate files under special folder
 
 plugins: [jekyll-paginate]
-paginate: 1
-paginate_path: "/blogs/page:num/"
+paginate: 3
+paginate_path: "/blogs/page:num/" # files generate folder is "blogs" and the subfolder is page2,page3....page:num.
 
 defaults:
   - scope:
