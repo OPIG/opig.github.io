@@ -33,7 +33,7 @@ title: blogs list
                     </li>
                   {% elsif page == 1 %}
                     <li>
-                      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+                      <a href="{{ '/blogs/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
                     </li>
                   {% else %}
                     <li>
@@ -52,5 +52,4 @@ title: blogs list
                 </ul>
               {% endif %}
                 </div>
-
-    </div>
+    </div> 

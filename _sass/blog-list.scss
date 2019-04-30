@@ -69,11 +69,18 @@
     text-decoration: none;
     background-color: #fff;
     border: 1px solid #ddd;
+    &:hover{
+        background-color: #428bca;
+        z-index: 2;
+        color: #fff;
+        cursor: pointer;
+        border-color: #428bca;
+    }
 }
 .custom-pagination>.active>a, .custom-pagination>.active>a:focus, .custom-pagination>.active>a:hover, .custom-pagination>.active>span, .custom-pagination>.active>span:focus, .custom-pagination>.active>span:hover{
     z-index: 2;
     color: #fff;
-    cursor: default;
+    cursor: pointer;
     background-color: #428bca;
     border-color: #428bca;
 }
