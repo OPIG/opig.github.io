@@ -1,5 +1,5 @@
 ---
-category: books
+category: [books]
 time: 2019.7.27
 ---
 
