@@ -3,6 +3,7 @@ category: [books]
 time: 2019.7.27
 excerpt: >
 This is a detective fiction. A woman have at least five lovers, and have three lovers at the same time. One day, her lovers found each other and one of them was killed and also the witness dead one by one. Who is the murder and what happend to them, me, a smart detective will announce the results.
+
 ---
 
 ## The Ivory Grin ##
