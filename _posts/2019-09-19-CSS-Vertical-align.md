@@ -1,3 +1,8 @@
+---
+category: [css]
+excerpt: "vertical-align实验面板页面"
+---
+
 <!Doctype html>
 <html>
 
@@ -106,6 +111,9 @@
                 this is static workd!
             </span>
         </div>
+    </div>
+    <div class="ref-box">
+        <a href="https://www.zhangxinxu.com/wordpress/2010/05/%e6%88%91%e5%af%b9css-vertical-align%e7%9a%84%e4%b8%80%e4%ba%9b%e7%90%86%e8%a7%a3%e4%b8%8e%e8%ae%a4%e8%af%86%ef%bc%88%e4%b8%80%ef%bc%89/">张鑫旭-我对css-vertical-align的一些理解与认识</a>
     </div>
     <script type="text/javascript">
 
