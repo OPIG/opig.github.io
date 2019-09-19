@@ -3,7 +3,7 @@ category: [css]
 excerpt: "vertical-align实验面板页面"
 ---
 
-<!Doctype html>
+
 <html>
 
 <head>
@@ -18,18 +18,18 @@ excerpt: "vertical-align实验面板页面"
         }
 
         .operate-box {
-            position: absolute;
-            width: 25%;
-            left: 0;
+            display:inline-block;
+            width: 30%;
             border-right: 1px dashed #a0b3d6;
         }
 
         .show-box {
             background-color: pink;
-            width: 70%;
-            margin-left: calc(25% + 10px);
+            width: 55%;
             line-height: 200px;
             padding: 20px;
+            display:inline-block;
+            vertical-align: top;
         }
 
         .text-dot {
