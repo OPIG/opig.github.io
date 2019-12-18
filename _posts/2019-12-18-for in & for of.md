@@ -7,8 +7,7 @@ expert:'ES5的话也可以使用<font color="red">forEach</font>，ES5具有遍�
 ---
 
 # <center color="red">for in 和for of的区别</center>
-
 ===
 
-1. 遍历数组通常用for循环
+## 1. 遍历数组通常用for循环
 
