@@ -29,3 +29,23 @@ if you successfully installed Tomcat, every time you want to use Tomcat is only 
 
 ## references
 [https://blog.csdn.net/weixin_42109012/article/details/94383001](https://blog.csdn.net/weixin_42109012/article/details/94383001)
+
+
+# <center>JDK</center>
+
+## What's JDK
+JDK include JRE
+
+## Install JDK
+1. Go to official [website](https://www.oracle.com/technetwork/java/javase/downloads/index.html), download JDK you need.
+2. Double click JDK package you downloaded,click next to install(you can customize your install path)
+3.  Config Environment Variables
+  - Go to desktop, find Computer or This PC, right click, then choose Properties
+  - Choose Advanced system settings on the left, pop up System Properties window, then choose Environment Variables.
+  - Add new System Variable named: `JAVA_HOME` and Variable value is the Tomacat path you made.
+  - Edit `Path` in System Variables, add `%JAVA_HOME%\bin`(if needed, you need to add semicolon at the end of the variable you added)
+4. Run cmd, input `java -version` or `javac -version` to valify java install successfully or not and check java version. 
+
+## Uninstall JDK
+1. open control panel, uninstall Java
+2. also you may need to delete regedit.
