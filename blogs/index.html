@@ -9,9 +9,11 @@ title: blogs list
             {% for post in paginator.posts %}
             <li>
                 <h3><a href="{{ post.url | prepend: baseurl }}">{{post.title}}</a></h3>
-                <p class="desc-box">{{ post.excerpt }}</p>
-                <span class="post-date">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
-                    
+                {%if page.excerpt %}
+                        <p class="desc-box">{{ post.excerpt }}</p>
+                {% endif %}                     
+                
+                <span class="post-date">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>                       
             </li>
             {%endfor%}
         </ul>
