@@ -72,8 +72,8 @@ JDK include JRE
 > creating server tcp listening socket *:6379: listen: unknown error.<br/>
   Solve: configure `redis.windows.conf`, remove '#' before `bind 127.0.0.1`
 ## uninsatll redis
-> `redis-server --service-uninstall`
-> `cmd->redis->\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\`, delete `redis`
+* `redis-server --service-uninstall`.
+* `cmd->redis->\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\`, delete `redis`.
 
 ## common cmd in redis
 * uninstall service: `redis-server --service-uninstall`
