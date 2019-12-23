@@ -64,10 +64,15 @@ JDK include JRE
 >  Invalid argument during startup: Failed to open the .conf file: 
    verbose CWD=C:\developer\redis
    Solve: `redis-server --service-install redis.windows.conf --loglevel verbose`
+   
 > creating server tcp listening socket *:6379: listen: unknown error
   Solve: configure `redis.windows.conf`, remove '#' before `bind 127.0.0.1`
 ## uninsatll redis
 > `redis-server --service-uninstall`
 > `cmd->redis->\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\`, delete `redis`
 
+## references
+[https://blog.csdn.net/u011277123/article/details/78692603/](https://blog.csdn.net/u011277123/article/details/78692603/)
+[https://blog.csdn.net/weixin_43953753/article/details/86019883](https://blog.csdn.net/weixin_43953753/article/details/86019883)
+[https://blog.csdn.net/wu_zongwen/article/details/80318916](https://blog.csdn.net/wu_zongwen/article/details/80318916)
 
