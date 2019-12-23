@@ -22,6 +22,7 @@ Tomcat is one of several open source collaborations that are collectively known 
   - Also navigate to Tomcat/bin folder, double click `startup.bat` or `catalina.bat` or `tomcat*.exe`, etc.
 5. You can navigate to Tomcat/conf folder find `server.xml` to update http port (default port is  8080)
 6. open browser input `localhost://[your http port]` to browser Tomcat default page, also you can put your project under `Tomcat/webapps`.
+7. put your project under `Tomcat/webapps`, then you need to configure `server.xml`. add `<Context path="/[visit path]"	docBase="[relative path,default current path is webapps ]"  reloadable="true"/>` under `<Host>`
   
 ## start Tomcat
 if you successfully installed Tomcat, every time you want to use Tomcat is only need to start Tomcat service(navigate to Tomcat/bin folder, double click `startup.bat` or `catalina.bat` or `tomcat*.exe`, etc.)
