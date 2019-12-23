@@ -50,3 +50,24 @@ JDK include JRE
 ## Uninstall JDK
 1. open control panel, uninstall Java
 2. also you may need to delete regedit.
+
+---
+
+# <center>Redis</center>
+
+## What's Redis
+
+## Install redis
+`redis-server --service-install redis.windows.conf --loglevel verbose`
+
+## Issue in redis
+>  Invalid argument during startup: Failed to open the .conf file: 
+   verbose CWD=C:\developer\redis
+   Solve: `redis-server --service-install redis.windows.conf --loglevel verbose`
+> creating server tcp listening socket *:6379: listen: unknown error
+  Solve: configure `redis.windows.conf`, remove '#' before `bind 127.0.0.1`
+## uninsatll redis
+> `redis-server --service-uninstall`
+> `cmd->redis->\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\`, delete `redis`
+
+
