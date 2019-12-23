@@ -58,21 +58,37 @@ JDK include JRE
 ## What's Redis
 
 ## Install redis
+1. Go to [website](https://github.com/microsoftarchive/redis/releases) download redis you need(ps: different environment need different redis,like linux, window)
+2. extract zip file you download, navigate to root path, run `cmd->redis-server.exe` start redis service.if you see redis login in the window, it shows redis install successfully.
+2. run another cmd, input `redis-cli.exe` then you can get connect to server.
+3. if you close the cmd window, the redis service will closed, hence if you want to put redis service into window service, then you can: `cmd->redis-server.exe --service-install redis.windows.conf --loglevel verbose`, the last parameter `--loglevel verbose` means log level. after run this cmd, you will see redis service in window services list(Window+R->services.msc)
 `redis-server --service-install redis.windows.conf --loglevel verbose`
 
 ## Issue in redis
 >  Invalid argument during startup: Failed to open the .conf file: 
-   verbose CWD=C:\developer\redis
+   verbose CWD=C:\developer\redis....<br/>  
    Solve: `redis-server --service-install redis.windows.conf --loglevel verbose`
    
-> creating server tcp listening socket *:6379: listen: unknown error
+> creating server tcp listening socket *:6379: listen: unknown error.<br/>
   Solve: configure `redis.windows.conf`, remove '#' before `bind 127.0.0.1`
 ## uninsatll redis
 > `redis-server --service-uninstall`
 > `cmd->redis->\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\`, delete `redis`
 
+## common cmd in redis
+* uninstall service: `redis-server --service-uninstall`
+* start service: `redis-server --service-uninstall`
+* stop service: `redis-server --service-stop`
+* rename sercie: `redis-server --service-name name`
+
+easy pattern: `redis-cli.exe`
+specified pattern: `redis-cli.exe -h 127.0.0.1 -p 6379 -a requirepass` (also, you can re-change password in `redis.windows.conf`)
+
+## Redis Desktop Manager
+[https://redisdesktop.com/download](https://redisdesktop.com/download)
 ## references
 [https://blog.csdn.net/u011277123/article/details/78692603/](https://blog.csdn.net/u011277123/article/details/78692603/)
 [https://blog.csdn.net/weixin_43953753/article/details/86019883](https://blog.csdn.net/weixin_43953753/article/details/86019883)
+[https://www.cnblogs.com/dingguofeng/p/8709476.html](https://www.cnblogs.com/dingguofeng/p/8709476.html)
 [https://blog.csdn.net/wu_zongwen/article/details/80318916](https://blog.csdn.net/wu_zongwen/article/details/80318916)
 
