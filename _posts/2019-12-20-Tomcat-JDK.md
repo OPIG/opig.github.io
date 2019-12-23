@@ -77,8 +77,9 @@ JDK include JRE
 
 ## common cmd in redis
 * uninstall service: `redis-server --service-uninstall`
-* start service: `redis-server --service-uninstall`
+* start service: `redis-server --service-start`
 * stop service: `redis-server --service-stop`
+* `redis-cli shutdown`
 * rename sercie: `redis-server --service-name name`
 
 easy pattern: `redis-cli.exe`
