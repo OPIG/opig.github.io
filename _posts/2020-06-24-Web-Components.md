@@ -81,7 +81,7 @@ Custom Elements v1: Reusable Web Components[https://developers.google.com/web/fu
 </body>
 
 </html>
-
+```
 
 ```javascript
 
@@ -106,4 +106,5 @@ class UserCard extends HTMLElement {
   }
 }
 window.customElements.define('user-card', UserCard);
+```
 
