@@ -5,6 +5,36 @@ excerpt: ""
 
 String
 ===
+#### 情景模式-参数为正数:
+```
+slice()和substring()第二次参数指定的是字符串最后一个字符后面的位置;
+substr()第二个参数指定返回的字符串个数;
+```
+```
+var string = 'hello world';
+   console.log(string.slice(3));  //lo world
+   console.log(string.substring(3));  //lo world
+   console.log(string.substr(3));  //lo world
+   console.log(string.slice(3, 7));  //lo w
+   console.log(string.substring(3, 7)); //lo w
+   console.log(string.substr(3, 7)); //lo worl
+   ```
+#### 情景模式-参数为负数:
+ ```
+ slice() 会将所有的负数于字符串的长度相加
+ substr() 会将第一个负参数与字符串长度相加，第二个负参数转化为 0
+ substring() 将所有的负参数转化为 0
+```
+```
+ var string = 'hello world';  // length = 11
+    console.log(string.slice(-3));  // rld    slice(8)
+    console.log(string.substring(-3));  //hello world  substring(0)
+    console.log(string.substr(-3));  // rld  substr(8)
+    console.log(string.slice(3, -4));  //lo w slice(3, 7)
+    console.log(string.substring(3, -4)); //hel   substring(3, 0)
+    console.log(string.substr(3, -4)); //  ''   substring(3, 0)
+```
+
 substr, substring
 substring 方法用于提取字符串中介于两个指定下标之间的字符
 
