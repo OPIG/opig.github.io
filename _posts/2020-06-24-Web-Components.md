@@ -84,6 +84,7 @@ Custom Elements v1: Reusable Web Components[https://developers.google.com/web/fu
 ```
 
 ```javascript
+main.js
 
 class UserCard extends HTMLElement {
   constructor() {
