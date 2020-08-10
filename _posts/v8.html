@@ -1,0 +1,275 @@
+<!Doctype html>
+<html>
+<head>
+</head>
+<body>
+<div id="set1">[21,14,25,3,86,25]</div>
+<div id="set2"></div>
+<div class="like_button_container" data-commentid="1"></div>
+<div class="like_button_container" data-commentid="2"></div>
+<div class="like_button_container" data-commentid="3"></div>
+<script>
+/*
+  //test1
+    var InsertionSort = function InsertionSort(a, from, to) {
+    for (var i = from + 1; i < to; i++) {
+      var element = a[i];
+      for (var j = i - 1; j >= from; j--) {
+        var tmp = a[j];
+        var order = comparefn(tmp, element);
+        if (order > 0) {
+          a[j + 1] = tmp;
+        } else {
+          break;
+        }
+      }
+      a[j + 1] = element;
+    }
+	return a;
+  };
+
+  function comparefn(x,y){
+  	return x-y;
+  }
+  var set2 = document.getElementById("set2");
+  set2.innerHTML="["+(InsertionSort([21,14,25,3,86,25],0,6))+"]";
+  
+  
+  
+  //test 2
+  function CheckIfExist(matrix,k){
+        var row = matrix.length-1;
+        var col = 0;
+        while(row>0&col<matrix[0].length){
+            if(matrix[row][col]==k){
+                return 'Yes'
+            }
+            else if(matrix[row][col]>k){
+                row--;
+            }
+            else if(matrix[row][col]<k){
+                col++;
+            }
+        }
+    return 'No';
+}
+
+var arr =[[1,2,3],[2,3,4]];
+var num = 4;
+let res = CheckIfExist(arr,num);
+print(res);
+
+
+//test 3
+function calculateLen(arr){
+    var result;
+    var outArr=[];
+    var newArr = arr.sort((a,b)=>b-a);
+    if(arr.length==1){
+    result=1;
+    }else{
+        for(i=0;i<arr.length;i++){
+            if(arr[i]-arr[i+1]==1){
+                if(i==0){
+                     outArr.push(arr[i],arr[i+1]);
+                }
+                else{
+                    outArr.push(arr[i+1]);
+                }
+            }
+        }
+        result = outArr.length;
+    }
+    return result;
+}
+
+
+//test4
+let number =9;
+let arr = [7 ,5 ,5 ,3 ,2 ,6 ,4 ,3,9];
+arr.sort((a,b)=>a-b);
+let res = 1,cur = 1;
+for(let i = 1;i < number;i++) {
+    if(arr[i] == arr[i-1]+1){
+        cur++;
+        res = Math.max(cur,res);
+    }else if(arr[i] > arr[i-1]+1) {
+        cur = 1;
+    }
+}
+
+*/
+//test 5
+
+/*
+var n = 10;
+var k = 10;
+var arr = [-8 ,-4 ,-3 ,0 ,1 ,2, 4 ,5 ,8, 9];
+let l = 1,r = n - 1;
+for(let i =0;i<n-2;i++){
+    l=i+1;
+	r = n - 1;
+    while(l<r){
+        var temp = arr[l]+arr[r];
+        if(k > temp + arr[i]){
+            r--;
+        }else if(k < temp + arr[i]){
+            l++
+        }else{
+            console.log(arr[i],arr[l],arr[r]);
+            l++;
+            r--;
+        }
+        while(arr[l]==arr[l-1]){
+            l++;
+        }
+        while(arr[r]==arr[r+1]){
+            r--;
+        }
+    }
+}
+*/
+
+/*
+function Point(x, y){ 
+    this.x = x; 
+    this.y = y; 
+    this.moveTo = function(x, y){ 
+        this.x = x; 
+        this.y = y; 
+    } 
+ } 
+
+var p1 = new Point(0, 0); 
+var p2 = {x: 0, y: 0}; 
+p1.moveTo.apply(p2, [10, 10]);//apply实际上为p2.moveTo(10,10)
+p2.x//10
+*/
+
+/*
+function User(){
+        //private properties
+        var _name = '';
+        var _age  = 0;
+     
+        //private method
+        function privateMethod(){
+            return "private  Method"
+        };
+        //public method
+        this.setName = function(name){
+            //can call
+            privateMethod();
+            _name = name;
+            return this;
+        };
+     
+        this.setAge = function(age){
+            _age = age;
+            return this;
+        };
+        this.getAge = function(){
+            return _age;
+        };
+        this.getName = function(){
+            return _name;
+        };
+    }
+    var p=new User();
+    console.log(p.setName('jackwang').setAge(28));
+    console.log(p.getName());//jackwang
+    console.log(p.getAge());//28
+    console.log(p._name);//undefined 
+    console.log(p.privateMethod());//error
+	*/
+	
+	/*var oarr = [ 20,21,30,2,50,100];
+function rob(arr){
+    if(arr.length==0){return 0;}
+    else if (arr.length==1){return arr[0]}
+    var narr=[];
+    narr[0]=arr[0];
+    narr[1]= arr[1];
+    for(var i = 2;i<arr.length;i++){
+        narr[i] = Math.max(narr[i-2]+arr[i],narr[i-1]);
+    }
+    return narr[arr.length-1]
+}
+rob(oarr)*/
+
+function show(e){
+	console.log(e)
+	console.log(e.target.innerHTML)
+}
+
+var Chinese = {
+	nation:"china"
+}
+Chinese.birthPlaces = ['北京','上海','香港'];
+
+function deepCopy(p, c) {
+
+　　　　var c = c || {};
+
+　　　　for (var i in p) {
+
+　　　　　　if (typeof p[i] === 'object') {
+
+　　　　　　　　c[i] = (p[i].constructor === Array) ? [] : {};
+
+　　　　　　　　deepCopy(p[i], c[i]);
+
+　　　　　　} else {
+
+　　　　　　　　　c[i] = p[i];
+
+　　　　　　}
+　　　　}
+
+　　　　return c;
+　　}
+var D = deepCopy(Chinese);
+
+</script>
+<!-- 加载 React。-->
+  <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
+  
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- 加载我们的 React 组件。-->
+    <script type="text/babel">
+	'use strict';
+const e = React.createElement;
+
+class LikeButton extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {liked:false};
+	}
+	
+	render(){
+		if(this.state.liked){
+			return 'You liked comment number is ' + this.props.commentIDx;
+		}
+		return (
+			<button onClick={() => this.setState({ liked: true })}>
+    Like12
+  </button>
+		)
+	}
+	
+}
+
+document.querySelectorAll('.like_button_container').forEach(domContainer => {
+    // Read the comment ID from a data-* attribute.
+    const commentID = parseInt(domContainer.dataset.commentid, 10);
+    ReactDOM.render(
+      e(LikeButton, { commentIDx: commentID }),
+      domContainer
+    );
+  });
+	</script>
+
+</body>
+</html>
