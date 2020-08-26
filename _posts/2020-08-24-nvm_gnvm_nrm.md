@@ -5,6 +5,12 @@
   
   2.在git中安装 `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash`
   
+### To verify that nvm has been installed, do:
+
+`command -v nvm`
+
+which should output `nvm` if the installation was successful. Please note that which nvm will not work, since nvm is a sourced shell function, not an executable binary.
+reference: [https://github.com/nvm-sh/nvm#manual-install](https://github.com/nvm-sh/nvm#manual-install)
 
 #### nvm配置
 nvm的安装目录，有一个settings.txt文件，打开之后把下面的代码复制进去
@@ -70,3 +76,11 @@ nrm use XXX[taobao]切换到对应的镜像
 
 ### Reference:
 npm 和 cnpm [https://www.jianshu.com/p/115594f64b41](https://www.jianshu.com/p/115594f64b41)
+
+
+
+### 通过执行如下第一条命令，打开隐藏文件
+```
+defaults write com.apple.finder AppleShowAllFiles Yes && killall Finder //显示隐藏文件
+defaults write com.apple.finder AppleShowAllFiles No && killall Finder //不显示隐藏文件
+```
