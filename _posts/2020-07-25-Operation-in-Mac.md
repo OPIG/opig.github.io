@@ -11,3 +11,8 @@ Also we can use `code .` command to open VSCode:
 * Open Mac `Terminal`
 * `cd` to the folder that you want to open by VSCode.
 * Input `code .`, then `Enter`
+
+
+
+## Mac shortcut
+[cnblogs.com/guchunchao/p/9771548.html](cnblogs.com/guchunchao/p/9771548.html)
