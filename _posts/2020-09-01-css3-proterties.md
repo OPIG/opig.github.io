@@ -63,3 +63,26 @@ CSS Animation就是为了解决这些问题而提出的。
 
 
 ### Animation
+
+animation-name：声明要操纵的@keyframes规则的名称。
+
+animation-duration：动画完成一个周期所需的时间。[Xs or Xms]
+
+animation-timing-function：建立预设的加速曲线，例如缓动或线性。[ease, ease-out, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) (e.g. cubic-bezier(0.5, 0.2, 0.3, 1.0))]
+
+animation-delay：加载元素到动画序列开始之间的时间。[Xs or Xms]
+
+animation-direction：设置循环后动画的方向, 其默认值在每个周期重置。换句话说该属性定义是否应该轮流反向播放动画。[normal, alternate], alternate反向播放动画
+
+animation-iteration-count：应该执行动画的次数。[X]
+
+animation-fill-mode：设置在动画之前/之后应用的值。 [forwards, backwards, both, none]
+
+animation-play-state：暂停/播放动画。您可以将动画的最后状态设置为保留在屏幕上，或者可以将其设置为切换回动画开始之前的状态。[paused, running, running]
+
+
+
+### linear-gradient用法
+linear-gradient() 函数用于创建一个线性渐变的 "图像"。
+
+为了创建一个线性渐变，你需要设置一个起始点和一个方向（指定为一个角度）的渐变效果。你还要定义终止色。终止色就是你想让Gecko去平滑的过渡，并且你必须指定至少两种，当然也会可以指定更多的颜色去创建更复杂的渐变效果。
