@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style rel="stylesheet" type="text/css">
+    .content{
+        width: 80%;
+        margin: 0 10%;
+    }
+         .love {
+			/* 爱心 */
+			position: relative;
+		}
+		.love:before {
+			content: "";
+			width: 70px;
+			height: 110px;
+			background: #f00;
+			position: absolute;
+			border-top-left-radius: 50%;
+			border-top-right-radius: 50%;
+			transform: rotate(45deg);
+		}
+		.love:after {
+			content: "";
+			width: 70px;
+			height: 110px;
+			background: #f00;
+			position: absolute;
+			border-top-left-radius: 50%;
+			border-top-right-radius: 50%;
+			transform: rotate(-45deg);
+			left: -30px;
+        }
+    </style>
+</head>
+<body>
+    <h3>https://blog.csdn.net/suwyer/article/details/81045284</h3>
+    <div class="content">
+        <div class="love"></div>
+    </div>
+</body>
+</html>
