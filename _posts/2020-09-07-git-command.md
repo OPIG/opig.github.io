@@ -21,8 +21,13 @@ git reflog
 git log --graph
 
 
+### 删除远程分支
+
+`git push origin --delete <branchName>`
+
 
 ### 代码回滚 [https://www.cnblogs.com/human/p/5128482.html](https://www.cnblogs.com/human/p/5128482.html)
+
 今天遇到的情况是这样的，我有一个feature A分支，merge到了release分支，但是release分支有人（小甲）在使用，
 我们的代码不冲突，但是小甲在release上做测试，马上就要merge到master分支，而我的feature A还是不成熟的，所以暂时不能一起merge到master，
 我采取的操作就是把release的内容回滚到merge之前。
