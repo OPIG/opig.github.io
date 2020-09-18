@@ -57,8 +57,8 @@ Hello World!
 yog2 release --dest debug --watch
 ```
 
-### Note: 如果你的app不是用的默认名字home，上面流程走完后(上面的home替换成你的app名字)启动项目访问地址应该为`http://127.0.0.1:8085/你的app名字`
-
+### Note: 如果你的app不是用的默认名字home，上面流程走完后(上面的home替换成你的app名字)启动项目访问地址应该为`http://127.0.0.1:8085/你的app名字`. 或者也可以在
+`project根目录\conf\plugins\dispatcher.js`中修改defaultRoute 为你的app名字，这样重新`yog2 run`可以访问`http://127.0.0.1:8085/`
 
 ### reference 
 YOG2 [http://fex.baidu.com/yog2/docs/](http://fex.baidu.com/yog2/docs/)
