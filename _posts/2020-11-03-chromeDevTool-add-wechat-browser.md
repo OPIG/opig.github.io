@@ -20,3 +20,4 @@
 
 ## reference
 [chrome 设置安卓微信和IOS微信UA方法](https://blog.csdn.net/mr_yanyan/article/details/80640639)
+[chrome调试微信网页](https://www.cnblogs.com/ZQ1437487263/p/13590233.html)
