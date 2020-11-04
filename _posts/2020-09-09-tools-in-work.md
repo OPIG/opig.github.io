@@ -25,3 +25,4 @@
 8. pm2
 9. [wget](https://www.cnblogs.com/sx66/p/11887022.html)为单线程下载，有时（尤其是外网资源）会出现下载十分缓慢的情况 / [mwget](https://www.cnblogs.com/biaopei/p/12017150.html)为多线程wget下载工具
 10.yum
+11.zuul, nacos
