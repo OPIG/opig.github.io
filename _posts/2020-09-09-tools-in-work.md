@@ -19,7 +19,7 @@
 2. notepad++
 3. git
 4. SourceTree
-5. postman / getman
+5. postman / getman / Burp Suite
 6. fiddler
 7. px2rem px与rem之间转换
 8. pm2
