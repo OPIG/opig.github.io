@@ -26,6 +26,8 @@
 9. [wget](https://www.cnblogs.com/sx66/p/11887022.html)为单线程下载，有时（尤其是外网资源）会出现下载十分缓慢的情况 / [mwget](https://www.cnblogs.com/biaopei/p/12017150.html)为多线程wget下载工具
 10.yum
 11.zuul, nacos
-12. puppeteer
+12. puppeteer 
+[https://blog.csdn.net/u010142437/article/details/79136182](https://blog.csdn.net/u010142437/article/details/79136182)
+[https://www.cnblogs.com/paris-test/p/9711423.html](https://www.cnblogs.com/paris-test/p/9711423.html)
 13. SheetJS是前端操作Excel以及类似的二维表的最佳选择之一
 14. Navicat Premium 链接数据库
