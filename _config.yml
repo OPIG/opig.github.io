@@ -30,6 +30,10 @@ facebook_username:  username
 jianshu_username:	6b3bc8783ffb
 #新加入了简书，jianshu_id 在你打开你的简书主页后的地址如：http://www.jianshu.com/u/e71990ada2fd中，后面这一串数字：e71990ada2fd
 
+# Featured Tags
+featured-tags: true                     # 是否使用首页标签
+featured-condition-size: 1              # 相同标签数量大于这个数，才会出现在首页 将其修改为featured-condition-size: 0, 这样只有一个标签时也会出现在首页了
+
 permalink: /:categories/:title.html # permalink special page url. # permalink: /:categories/:year/:month/:day/:title/  if permalink:none then url should be /:categories/:title
 
 exclude: [Front-End-Repos, github-page-knowledges] # exclude generate files under special folder
