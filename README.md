@@ -1,3 +1,12 @@
+## How to debug this project
+1. install [Ruby](https://www.ruby-lang.org/en/downloads/)
+2. `jekyll build` - Builds the site and outputs a static site to a directory called `_site`.
+3. `jekyll serve` - Does the same thing except it rebuilds any time you make a change and runs a local web server at `http://localhost:4000`.
+4. `jekyll clean` - Remove the `_sites` folder.
+
+[Check More](/jekyll/jekyll.html)
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/OPIG/opig.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
@@ -35,3 +44,10 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 ### Support or Contact
 
 Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+### Reference
+[Offciall website Step by Step Tutorial](https://jekyllrb.com/docs/step-by-step/10-deployment/)
+
+[huxpro.github.io](huxpro.github.io)
+
+[https://github.com/qiubaiying/qiubaiying.github.io](https://github.com/qiubaiying/qiubaiying.github.io)

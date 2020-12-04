@@ -1,50 +1,61 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+## Welcome to Jekyll!
+##
+## This config file is meant for settings that affect your whole blog, values
+## which you are expected to set up once and rarely need to edit after that.
+## For technical reasons, this file is *NOT* reloaded automatically when you use
+## 'jekyll serve'. If you change this file, please restart the server process.
 
-# basic Site setting
-title: Learning libs #你博客的标题
-SEOTitle: front-end #显示在浏览器上搜索的时候显示的标题
+## basic Site setting
+title: Learning libs ## 你博客的标题
+SEOTitle: front-end ## 显示在浏览器上搜索的时候显示的标题
 email: tl2f@outlook.com
-header-img: ''  	#显示在首页的背景图片
+header-img: ''  	## 显示在首页的背景图片
 description: >
  Keep learning and practice more.
 baseurl: ""
-url: ""          # 这个就是填写你的博客地址
-keyword: "front-end, front end" #关键词
+url: ""          ## 这个就是填写你的博客地址
+keyword: "front-end, front end" ##关键词
 
-# Sidebar settings
-sidebar: true                           # 是否开启侧边栏.
+## Sidebar settings
+## 是否开启侧边栏.
+sidebar: true                           
 sidebar-about-description: "说点装逼的话。。。"
-sidebar-avatar:      # 你的个人头像 这里你可以改成我在img文件夹中的两张备用照片 img/avatar-m 或 avatar-g
+## 你的个人头像 这里你可以改成我在img文件夹中的两张备用照片 img/avatar-m 或 avatar-g
+sidebar-avatar:     
 
-# SNS settings
+## SNS settings
 RSS: false
 weibo_username:     username
 zhihu_username:     username
 github_username:    username
 facebook_username:  username
 jianshu_username:	6b3bc8783ffb
-#新加入了简书，jianshu_id 在你打开你的简书主页后的地址如：http://www.jianshu.com/u/e71990ada2fd中，后面这一串数字：e71990ada2fd
+## 新加入了简书，jianshu_id 在你打开你的简书主页后的地址如：http://www.jianshu.com/u/e71990ada2fd中，后面这一串数字：e71990ada2fd
 
-# Featured Tags
-featured-tags: true                     # 是否使用首页标签
-featured-condition-size: 1              # 相同标签数量大于这个数，才会出现在首页 将其修改为featured-condition-size: 0, 这样只有一个标签时也会出现在首页了
+## Featured Tags
+featured-tags: true                     ## 是否使用首页标签
+featured-condition-size: 1              ## 相同标签数量大于这个数，才会出现在首页 将其修改为featured-condition-size: 0, 这样只有一个标签时也会出现在首页了
 
-permalink: /:categories/:title.html # permalink special page url. # permalink: /:categories/:year/:month/:day/:title/  if permalink:none then url should be /:categories/:title
+permalink: /:categories/:title.html ## permalink special page url. ## permalink: /:categories/:year/:month/:day/:title/  if permalink:none then url should be /:categories/:title
 
-exclude: [Front-End-Repos, github-page-knowledges] # exclude generate files under special folder
+exclude: [Front-End-Repos, github-page-knowledges] ## exclude generate files under special folder
 
-plugins: [jekyll-paginate]
+# plugins: [jekyll-paginate]
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
 paginate: 12
-paginate_path: "/blogs/page:num/" # files generate folder is "blogs" and the subfolder is page2,page3....page:num.
+## files generate folder is "blogs" and the subfolder is page2,page3....page:num.
+paginate_path: "/blogs/page:num/" 
 
+
+## What you really want is all posts to automatically have the post layout, authors to have author and everything else to use the default.
+## You can achieve this by using front matter defaults in _config.yml. You set a scope of what the default applies to, then the default front matter you’d like.
 defaults:
   - scope:
-      path: ""
+      path: ""  ## an empty string here means all files in the project
     values:
        layout: "default"
   - scope:
@@ -52,3 +63,29 @@ defaults:
       type: "posts"
     values: 
       layout: "blog"
+
+## add jekyll as a dependency
+gems: ["jekyll","jekyll-paginate"]
+
+## config options https://jekyllrb.com/docs/configuration/options/
+## Disable Disk Cache 
+disable_disk_cache: true
+
+## Listen on the given port.
+port: 4001
+
+## Open the site's URL in the browser.
+open_url: true 
+
+## Reload a page automatically on the browser when its content is edited.
+# livereload: false ## failed when set as true
+
+## Show a directory listing instead of loading your index file.
+# show_dir_listing: true
+
+
+## Do note that while `error_mode` configures Liquid’s parser, the `strict_variables` and `strict_filters` options configure Liquid’s renderer and are consequently, mutually exclusive.
+# liquid:
+#   error_mode: warn   ## `lax` — Ignore all errors.  `warn` — Output a warning on the console for each error. (default). `strict` — Output an error message and stop the build.
+#   strict_variables: true
+#   strict_filters: true
