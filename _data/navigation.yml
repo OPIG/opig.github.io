@@ -3,3 +3,9 @@
 
 - name: Blogs
   link: /blogs/
+
+- name: Archives
+  link: /archives/
+
+- name: About
+  link: /about/

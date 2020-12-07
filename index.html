@@ -1,56 +1,30 @@
 ---
 title: Learn and practice
+layout: homepage
 ---
-<style type="text/css">
-  .grid{
-    overflow:hidden;
-    margin:0px;
-    width:100%;
-    list-style:none;
-    text-align:center;
-  }
-  .effect-li{
-    position:relative;
-    z-index:1;
-    display:inline-block;
-    overflow:hidden;
-    width: 50%;
-    height:400px;
-    background:#3085a3;
-    cursor:pointer;
-  }
-  .effect-li figcaption{
-    top:auto;
-    bottom:0px;
-    height:50%;
-  }
-  .effect-li h2, .effect-li p{
-    transform:translate3d(0px, 40px, 0px);
-    transition:transform .35s;
-  }
-  .effect-li h2 span{
-    font-weight: 800;
-  }
-  .effect-li p{
-     color:rgba(255, 255, 255, 0.6);
-    opacity:0;
-    transition:opacity .2s, transform .35s;
-  }
-  .effect-li:hover p{
-    transform:translate3d(0px, 0px, 0px);
-    transition-delay:.05s;
-    transition-duration:.35s;
-    opacity:1;
-  }
-</style>
-<div class="grid">
-  <figure class="effect-li">
-    <figcation>
-      <h2>
-        Nice
-        <span>Demo</span>
-      </h2>
-      <p>Hello CSS3 World!</p>
-    </figcation>
-  </figure>
+
+{% for post in paginator.posts %}
+<div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">
+            {{ post.title }}
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+        <div class="post-content-preview">
+            {% if post.lang == 'en' %}
+                {{ post.content | strip_html | truncate:300 }}
+            {% else %}
+                {{ post.content | strip_html | truncate:200 }}
+            {% endif %}
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+    </p>
 </div>
+<hr>
+{% endfor %}

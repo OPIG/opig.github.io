@@ -9,12 +9,12 @@
 title: Learning libs ## 你博客的标题
 SEOTitle: front-end ## 显示在浏览器上搜索的时候显示的标题
 email: tl2f@outlook.com
-header-img: ''  	## 显示在首页的背景图片
+header-img: 'assets/img/home-banner.jpg'  	## 显示在首页的背景图片
 description: >
  Keep learning and practice more.
 baseurl: ""
-url: ""          ## 这个就是填写你的博客地址
-keyword: "front-end, front end" ##关键词
+url: "https://git.zhuzhuw.cn"          ## 这个就是填写你的博客地址
+keyword: "front-end, front end,博客, 个人网站, 互联网, Web, JavaScript, 前端" ##关键词
 
 ## Sidebar settings
 ## 是否开启侧边栏.
@@ -48,7 +48,7 @@ plugins:
   - jekyll-paginate
 paginate: 12
 ## files generate folder is "blogs" and the subfolder is page2,page3....page:num.
-paginate_path: "/blogs/page:num/" 
+# paginate_path: "/blogs/page:num/" 
 
 
 ## What you really want is all posts to automatically have the post layout, authors to have author and everything else to use the default.

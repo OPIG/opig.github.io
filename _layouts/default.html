@@ -1,13 +1,14 @@
 <!Doctype html>
 <html>
     {% include head.html %}
-    <body>
-        {% include Header.html %}
-        <div class="content-box">
-            <div class="content">
-                {{content}}
-            </div>
-        </div>
+
+    <!-- hack iOS CSS :active style -->
+    <body ontouchstart="">
+        {% include nav.html %}
+        {% include search.html %}
+
+        {{ content }}
+
         {% include Footer.html %}
     </body>
 </html>
