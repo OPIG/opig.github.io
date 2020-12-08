@@ -6,7 +6,7 @@ title: blogs list
 <div class="blog-list-box">
         <h2 class="page-title">{{page.title}}</h2>
         <ul class="blog-list">
-            {% for post in paginator.posts %}
+            {% for post in site.posts %}
             <li>
                 <h3><a href="{{ post.url | prepend: baseurl }}">{{post.title}}</a></h3>
                 {%if page.excerpt %}
@@ -18,7 +18,7 @@ title: blogs list
             {%endfor%}
         </ul>
         <!-- Pagination links -->
-        <div class="pagination-content">
+        <!-- <div class="pagination-content">
                 {% if paginator.total_pages > 1 %}
                 <ul class="custom-pagination">
                   <li>
@@ -54,5 +54,5 @@ title: blogs list
                 </li>
                 </ul>
               {% endif %}
-                </div>
+                </div> -->
     </div> 

@@ -21,7 +21,7 @@ keyword: "front-end, front end,博客, 个人网站, 互联网, Web, JavaScript,
 showSidebar: true                           
 sidebar-about-description: "说点装逼的话。。。"
 ## 你的个人头像 这里你可以改成我在img文件夹中的两张备用照片 img/avatar-m 或 avatar-g
-sidebar-avatar:     
+sidebar-avatar: 'https://bkimg.cdn.bcebos.com/pic/9e3df8dcd100baa1a5fd20114d10b912c9fc2e42?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg'  
 
 ## SNS settings 
 ## work together with includes/sns-links.html page if condition
