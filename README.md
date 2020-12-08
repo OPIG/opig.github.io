@@ -51,3 +51,7 @@ Having trouble with Pages? Check out our [documentation](https://help.github.com
 [huxpro.github.io](huxpro.github.io)
 
 [https://github.com/qiubaiying/qiubaiying.github.io](https://github.com/qiubaiying/qiubaiying.github.io)
+
+[https://www.jianshu.com/p/c04475ba80e4](https://www.jianshu.com/p/c04475ba80e4)
+
+[https://github.com/Shopify/liquid/wiki/Liquid-for-Designers](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)

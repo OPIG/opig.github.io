@@ -1,14 +1,39 @@
-<footer>
+<!-- <footer>
     <div class="footer-content">
         <ul class="contact-list">
             <li>{{ site.title }}</li>
              <li>{{ site.description }}</li>
             <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
         </ul>
+    </div> -->
+   
+<!-- </footer> -->
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <!-- SNS Link-->
+        {% include sns-links.html center=true %}
+        <p class="copyright text-muted">
+          &copy;Copyright {{site.title }} on {{ site.time | date: '%Y' }}
+          <br>
+          Powered by <a href="{{ site.url }}">Atom Blog</a>
+          <br>
+          e-mail: <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+          <br>
+          <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="100px"
+                        height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=opig&repo=opig.github.io&type=star&count=true">
+          </iframe>
+        </p>
+      </div>
     </div>
-    <div class="goto-top">
-        <div class="x-arrow"></div>
-        <div class="x-stick"></div>
-    </div>
-    <script type="text/javascript" src="/assets/js/public.js"></script>
+  </div>
+  <div class="goto-top">
+    <div class="x-arrow"></div>
+    <div class="x-stick"></div>
+  </div>
+<script type="text/javascript" src="/assets/js/public.js"></script>
 </footer>

@@ -1,6 +1,8 @@
 ---
 category: [javascript]
 excerpt: ""
+tags: 
+  - js
 ---
 
 String

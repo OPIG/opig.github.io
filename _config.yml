@@ -18,23 +18,25 @@ keyword: "front-end, front end,博客, 个人网站, 互联网, Web, JavaScript,
 
 ## Sidebar settings
 ## 是否开启侧边栏.
-sidebar: true                           
+showSidebar: true                           
 sidebar-about-description: "说点装逼的话。。。"
 ## 你的个人头像 这里你可以改成我在img文件夹中的两张备用照片 img/avatar-m 或 avatar-g
 sidebar-avatar:     
 
-## SNS settings
+## SNS settings 
+## work together with includes/sns-links.html page if condition
 RSS: false
+showLinks: false ## self define variable to control below items show in includes/sns-links.html page
 weibo_username:     username
 zhihu_username:     username
-github_username:    username
+github_username:    opig
 facebook_username:  username
 jianshu_username:	6b3bc8783ffb
 ## 新加入了简书，jianshu_id 在你打开你的简书主页后的地址如：http://www.jianshu.com/u/e71990ada2fd中，后面这一串数字：e71990ada2fd
 
 ## Featured Tags
 featured-tags: true                     ## 是否使用首页标签
-featured-condition-size: 1              ## 相同标签数量大于这个数，才会出现在首页 将其修改为featured-condition-size: 0, 这样只有一个标签时也会出现在首页了
+featured-condition-size: 0              ## 相同标签数量大于这个数，才会出现在首页 将其修改为featured-condition-size: 0, 这样只有一个标签时也会出现在首页了
 
 permalink: /:categories/:title.html ## permalink special page url. ## permalink: /:categories/:year/:month/:day/:title/  if permalink:none then url should be /:categories/:title
 
@@ -72,10 +74,10 @@ gems: ["jekyll","jekyll-paginate"]
 disable_disk_cache: true
 
 ## Listen on the given port.
-port: 4001
+# port: 4000
 
 ## Open the site's URL in the browser.
-open_url: true 
+# open_url: true 
 
 ## Reload a page automatically on the browser when its content is edited.
 # livereload: false ## failed when set as true
