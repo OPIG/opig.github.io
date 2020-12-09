@@ -15,6 +15,7 @@ title: Learn and practice
         </h3>
         {% endif %}
         <div class="post-content-preview">
+          {% comment %} strip_html是将HTML标签去除 {% endcomment %}
             {% if post.lang == 'en' %}
                 {{ post.content | strip_html | truncate:300 }}
             {% else %}

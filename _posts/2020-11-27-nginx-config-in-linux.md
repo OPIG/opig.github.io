@@ -1,3 +1,9 @@
+---
+layout: postdetail
+tags:
+  - linux
+  - nginx
+---
 ## -bash: nginx: command not found 解决方案
 我已经安装好了Nginx，然后也把Nginx启动了，此时想重新加载一下Nginx，然后输入命令，但是发生了下面的错误：
 

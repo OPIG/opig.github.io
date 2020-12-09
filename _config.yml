@@ -64,7 +64,7 @@ defaults:
       path: ""
       type: "posts"
     values: 
-      layout: "blog"
+      layout: "postdetail"
 
 ## add jekyll as a dependency
 gems: ["jekyll","jekyll-paginate"]
