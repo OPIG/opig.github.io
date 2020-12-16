@@ -15,3 +15,6 @@
 
 // JS 代码混淆 防止信息泄露
 // https://www.sojson.com/jscodeconfusion.html
+// Reference
+// https://blog.csdn.net/madridcrls7/article/details/80871596
+// https://www.cnblogs.com/JosonLee/p/10053715.html
