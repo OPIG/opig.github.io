@@ -83,7 +83,8 @@ Linux ln（英文全拼：link files）命令是一个非常重要命令，它�
 n的链接分 软链接 和 硬链接 两种：
 >软链接就是：“ln –s 源文件 目标文件”，只会在选定的位置上生成一个文件的镜像，不会占用磁盘空间，类似与windows的快捷方式。
 >硬链接ln源文件目标文件，没有参数-s， 会在选定的位置上生成一个和源文件大小相同的文件，无论是软链接还是硬链接，文件都保持同步变化。
->删除硬/软链接用 rm softlink_file 或者 unlink softlink_file
+>删除硬/软链接用 rm softlink_file 或者 unlink softlink_file  
+>ll 软连接(softlink_file) 查看到软连指向的具体文件
 
 
 ## 宝塔

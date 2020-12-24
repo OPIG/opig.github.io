@@ -23,5 +23,13 @@ cd /etc/nginx/conf.d/
 
 5. dd删除整行
 
+6. netstat -anltp|grep -i list  查看占用端口及进程Id（如21834）
+`ps -ef|grep 21834` 根据进程ID查服务
+
+7. ps -C nginx -o pid 查看到进程ID(如2253215)
+`ll /proc/2253215` 根据进程ID查看具体操作(cwd进入的文件， exe执行的操作)
+
+
+
 
 
