@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-11-27 10:24:46
+ * @LastEditTime: 2020-12-29 16:50:50
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \opig.github.io\_posts\2020-09-09-tools-in-work.md
+-->
 ## The Tools that i'm using or have used:
 
 ### 设计相关 design, image
@@ -31,3 +39,14 @@
 [https://www.cnblogs.com/paris-test/p/9711423.html](https://www.cnblogs.com/paris-test/p/9711423.html)
 13. SheetJS是前端操作Excel以及类似的二维表的最佳选择之一
 14. Navicat Premium 链接数据库
+15. 图片/文字等转换成字符[http://life.chacuo.net/convertfont2char ](http://life.chacuo.net/convertfont2char), 比如说大佛注释. 也可以安装koroFileHeader插件, windows电脑，使用`ctrl+shift+p`键,Mac电脑使用`shift+command+p`键 输入> `注释图案` 或者是 > `codeDesign`就可以选择注释图案了.快捷键`shift+command+p` 输入> `随机` ，选中并回车即可随机生成一个注释图案.
+
+
+graphql
+vscode使用技巧
+svelte框架
+serverless
+Webassembly
+chrome devtool
+crypress测试
+语义化

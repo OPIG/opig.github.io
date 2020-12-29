@@ -1,4 +1,5 @@
 ---
+title: How to create vue3 + Typescript projecty
 tags: 
   - vue3
 ---
