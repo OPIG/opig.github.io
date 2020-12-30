@@ -50,7 +50,7 @@ plugins:
   - jekyll-paginate
 paginate: 12
 ## files generate folder is "blogs" and the subfolder is page2,page3....page:num.
-# paginate_path: "/blogs/page:num/" 
+# paginate_path: "/blogs/page:num/"  ##冒号为前缀标记动态内容/值
 
 
 ## What you really want is all posts to automatically have the post layout, authors to have author and everything else to use the default.

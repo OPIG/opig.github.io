@@ -12,3 +12,22 @@ body{
     padding-right: 30px;
     padding-left: 30px;
 }
+
+table{
+  border-left: 1px solid #000;
+  border-top: 1px solid #000;
+  width: 100%;
+  word-wrap: break-word;
+  word-break: break-all;
+  
+  th{
+    text-align: center;
+  }
+  th,td{
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+  td{
+    text-indent: 10px;
+  }
+}
