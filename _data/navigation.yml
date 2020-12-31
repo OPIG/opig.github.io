@@ -1,11 +1,32 @@
-- name: Home
-  link: /
+# Jekyll supports loading data from YAML, JSON, and CSV files located in a _data directory.
 
-- name: Blogs
-  link: /blogs/
+[
+  {
+    "name": 'Home', "link": '/'
+  },
+  {
+    "name": 'Blogs', "link":'/blogs/'
+  },
+  {
+    "name": 'Archives', "link":'/Archives/'
+  },
+  {
+    "name": 'About', "link":'/About/'
+  },
+  {
+    "name": 'Author', "link": '/creator'
+  }
+]
 
-- name: Archives
-  link: /archives/
+# 下面的方式也行
+# - name: Home
+#   link: /
 
-- name: About
-  link: /about/
+# - name: Blogs
+#   link: /blogs/
+
+# - name: Archives
+#   link: /archives/
+
+# - name: About
+#   link: /about/

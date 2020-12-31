@@ -1,0 +1,18 @@
+---
+
+---
+
+<h1>{{ page.name }}</h1>
+<h2>{{ page.position }}</h2>
+
+{{ content }}
+
+{% assign filtered_posts = site.posts | where: 'author', page.short_name %}
+{% if filtered_posts.size > 0 %}
+  <h2>{{ page.name }}'s Posts</h2>
+  <ul>
+    {% for post in filtered_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor%}
+  </ul>
+{% endif %}

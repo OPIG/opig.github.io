@@ -53,6 +53,11 @@ paginate: 12
 # paginate_path: "/blogs/page:num/"  ##冒号为前缀标记动态内容/值
 
 
+## Collections are similar to posts except the content doesn’t have to be grouped by date. for example (https://jekyllrb.com/docs/step-by-step/09-collections/):
+collections:
+  authors:
+    output: ture  ## output a page for documents yes or not
+
 ## What you really want is all posts to automatically have the post layout, authors to have author and everything else to use the default.
 ## You can achieve this by using front matter defaults in _config.yml. You set a scope of what the default applies to, then the default front matter you’d like.
 defaults:
@@ -65,6 +70,11 @@ defaults:
       type: "posts"
     values: 
       layout: "postdetail"
+  - scope:
+      path: ''
+      type: "authors"
+    values:
+      layout: "author"
 
 ## add jekyll as a dependency
 gems: ["jekyll","jekyll-paginate"]
