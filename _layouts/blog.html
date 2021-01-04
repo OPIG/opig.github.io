@@ -1,7 +1,49 @@
 ---
 layout: default
 ---
+
+{% include intro-header.html type='post'%}
 <link rel="stylesheet" type="text/css" href="{{ "/assets/css/blog.css" | prepend: site.baseurl }}"/>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 postlist-container">
   {{ content }}
 </div>
+
+{% comment %}
+<!-- 测试使用vue -->
+{% endcomment %}
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js" async></script>
+<script src="https://statics-lib.zmlearn.com/vue/2.6.11/vue.min.js"></script>
+
+<div class="main-content" id="vueComponent">
+  <input type="text" v-model="inputVal">
+  Input value: ${inputVal}
+  <button @click="getDateTime">get Time</button>
+  <span>${ dateTime | formatTime }</span>
+</div>
+
+<script>
+var couponWrapper = new Vue({
+    el: '#vueComponent',
+    delimiters: ['${', '}'], //此处修改vue双括号模板为${}形式
+    data: {
+      inputVal:'',
+      dateTime: new Date()
+    },
+    filters: {
+      formatTime: function (t) {
+        // return t.getFullYear() + `-` + t.getMonth() + 1 + '-' + t.getDate() + '-' + t.getDay()
+        return t
+      }
+    },
+    mounted: function() {
+     // $('#vueComponent').show()
+     this.dateTime = new Date()
+    },
+    methods: {
+      getDateTime: function () {
+       let now = new Date()
+       this.dateTime = now
+      }
+    }
+  })
+  </script>

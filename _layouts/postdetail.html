@@ -29,7 +29,7 @@ layout: default
              title="{{ page.previous.title }}">
               Previous 
               <br>
-              <span>{{ page.previous.title }}</span>
+              <span>{{ page.previous.title | truncate: 20 }}</span>
              </a>
           </li>
           {% endif %}
@@ -38,7 +38,7 @@ layout: default
             <li class="next">
                 <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">
                 Next<br>
-                <span>{{page.next.title}}</span>
+                <span>{{page.next.title | truncate: 20}}</span>
                 </a>
             </li>
           {% endif %}

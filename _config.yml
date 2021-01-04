@@ -4,6 +4,7 @@
 ## which you are expected to set up once and rarely need to edit after that.
 ## For technical reasons, this file is *NOT* reloaded automatically when you use
 ## 'jekyll serve'. If you change this file, please restart the server process.
+## Default Configuration https://jekyllrb.com/docs/configuration/default/
 
 ## basic Site setting
 title: Learning libs ## 你博客的标题
@@ -19,7 +20,7 @@ keyword: "front-end, front end,博客, 个人网站, 互联网, Web, JavaScript,
 ## Sidebar settings
 ## 是否开启侧边栏.
 showSidebar: true                           
-sidebar-about-description: "说点装逼的话。。。"
+sidebar-about-description: "说点励志的话。。。"
 ## 你的个人头像 这里你可以改成我在img文件夹中的两张备用照片 img/avatar-m 或 avatar-g
 sidebar-avatar: 'https://bkimg.cdn.bcebos.com/pic/9e3df8dcd100baa1a5fd20114d10b912c9fc2e42?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg'  
 
@@ -38,6 +39,7 @@ jianshu_username:	6b3bc8783ffb
 featured-tags: true                     ## 是否使用首页标签
 featured-condition-size: 0              ## 相同标签数量大于这个数，才会出现在首页 将其修改为featured-condition-size: 0, 这样只有一个标签时也会出现在首页了
 
+## https://jekyllrb.com/docs/permalinks/
 permalink: /:categories/:title.html ## permalink special page url. ## permalink: /:categories/:year/:month/:day/:title/  if permalink:none then url should be /:categories/:title
 
 exclude: [Front-End-Repos, github-page-knowledges] ## exclude generate files under special folder

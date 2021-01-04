@@ -8,6 +8,8 @@
 {{ content }}
 
 {% assign filtered_posts = site.posts | where: 'author', page.short_name %}
+
+<!-- 1. using array size/length to control show result -->
 {% if filtered_posts.size > 0 %}
   <h2>{{ page.name }}'s Posts</h2>
   <ul>
