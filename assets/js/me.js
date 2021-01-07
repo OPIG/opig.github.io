@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-16 19:06:57
- * @LastEditTime: 2020-12-29 15:14:46
+ * @LastEditTime: 2021-01-05 10:00:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \opig.github.io\assets\js\me.js
@@ -42,6 +42,7 @@
     id: decodeURI(location.pathname),      // 用于标记评论是哪个页面的，确保唯一，并且长度小于50
     title: document.title,
     body:  '文章链接：'+ decodeURIComponent(location.origin+location.pathname),
+    distractionFreeMode: true // 是否启用类似FB的阴影遮罩
   })
   gitalk.render('gitalk-container');    // 渲染Gitalk评论组件
 }()
