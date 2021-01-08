@@ -5,3 +5,5 @@ JQuery:  [https://jquery.cuishifeng.cn/index.html](https://jquery.cuishifeng.cn/
 [若川的博客](https://www.lxchuan12.cn/)
 
 [iHTCboy](https://github.com/iHTCboy/iHTCboy.github.io)
+
+[好记么]https://haoji.me/ [内含vscode插件开发](https://www.cnblogs.com/liuxianan/p/vscode-plugin-overview.html)
