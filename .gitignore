@@ -1,7 +1,9 @@
 ## 将以下内容变更排除在git中，即不会上传到github中
 
 ### macOS ###
+.DS_Store
 *.DS_Store
+*/*.DS_Store
 
 # debug file
 #_site

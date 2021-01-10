@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validate Url</title>
+    <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <h3><a href="https://jekyllrb.com/docs/configuration/options/">link1</a><span></span></h3>
+    <h3><a href="https://jekyllrb.com/docs/configuration/optionsfdsf/">link2</a><span></span></h3>
+
+    <script>
+        // validate Url function for IE
+        function validateUrl(url) {
+            var xmlhttp = new ActiveXObject('Microsoft.XMLHTTP')
+            xmlhttp.open('GET', url, false)
+            xmlhttp.send()
+            if (xmlhttp.readyState == 4) {
+                if (xmlhttp.Status != 200) {
+                    console.log('useless link')
+                    return false    
+                }
+                return xmlhttp.Status == 200
+            }
+            return false
+        }
+
+        // validateUrl('https://jekyllrb.com/docs/configuration/options/')
+
+
+
+        // validate Url function by ajax
+        function validateUrlAjax(url, el) {
+            $.ajax({
+                url: url,
+                type: 'get',
+                async: true, // dafault value is true means this is an async request
+                complete: function (res) {
+                    if (res.status === 200) {
+                        el.text(' Validated')
+                    } else {
+                        el.text(' un-Validated')
+                    }
+                }
+            })
+
+        }
+
+        let domArr = document.getElementsByTagName('h3')
+        console.log(domArr);
+        let urlDom
+        for(let i in domArr) {
+            if(domArr[i].nodeType === 1) {
+                urlDom = $(domArr[i])
+                validateUrlAjax(urlDom.find('a').attr('href'), urlDom.find('span'))
+            }
+        }
+    </script>
+</body>
+
+</html>

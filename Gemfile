@@ -11,6 +11,7 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 # gem "rails"
 
 gem "jekyll"
+gem 'webrick'
 
 
 # https://jekyllrb.com/docs/step-by-step/10-deployment/

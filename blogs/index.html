@@ -4,21 +4,44 @@ title: blogs list
 ---
 
 <div class="blog-list-box">
-        <h2 class="page-title">{{page.title}}</h2>
-        <ul class="blog-list">
-            {% for post in site.posts %}
-            <li>
-                <h3><a href="{{ post.url | prepend: baseurl }}">{{post.title}}</a></h3>
-                {%if page.excerpt %}
-                        <p class="desc-box">{{ post.excerpt }}</p>
-                {% endif %}                     
-                
-                <span class="post-date">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>                       
-            </li>
-            {%endfor%}
-        </ul>
-        <!-- Pagination links -->
-        <!-- <div class="pagination-content">
+  <h2 class="page-title">{{page.title}}</h2>
+  <ul class="blog-list">
+    {% for post in site.posts %}
+    {% if forloop.index < 10 %} 
+      <li class='page page-{{forloop.index | times: 1.0 | divided_by: 10 | ceil}}'>
+        <h3><a href="{{ post.url | prepend: baseurl }}">{{post.title}}</a></h3>
+        {%if page.excerpt %}
+        <p class="desc-box">{{ post.excerpt }}</p>
+        {% endif %}
+
+        <span class="post-date">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{
+          page.date | date: "%B %-d, %Y" }}</span>
+      </li>
+      {% else %}
+      <li class='page hide page-{{forloop.index | times: 1.0 | divided_by: 10 | ceil}}'>
+        <h3><a href="{{ post.url | prepend: baseurl }}">{{post.title}}</a></h3>
+        {%if page.excerpt %}
+        <p class="desc-box">{{ post.excerpt }}</p>
+        {% endif %}
+
+        <span class="post-date">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on
+          {{ page.date | date: "%B %-d, %Y" }}</span>
+      </li>
+      {% endif %}
+      {%endfor%}
+  </ul>
+  {% if site.posts.size > 10 %}
+  <div class="paginate">
+    <ul>
+      <li>1</li>
+      <li>...</li>
+      <li><input type="text" id="gotopage"></li>
+      <li class="lastpage">{{ site.posts.size | times: 1.0 | divided_by: 10 | ceil }}</li>
+    </ul>
+  </div>
+  {% endif %}
+  <!-- Pagination links -->
+  <!-- <div class="pagination-content">
                 {% if paginator.total_pages > 1 %}
                 <ul class="custom-pagination">
                   <li>
@@ -55,4 +78,24 @@ title: blogs list
                 </ul>
               {% endif %}
                 </div> -->
-    </div> 
+</div>
+{% raw %}
+<script>
+  let pageSize = Number($('.lastpage').text())
+  $('#gotopage').blur(function () {
+    let val = Number($('#gotopage').val().trim())
+    if(val <= pageSize){
+      $('.page').addClass('hide')
+      $('.page-' + val).removeClass('hide')
+    }
+  })
+
+  //回车事件绑定
+$('#gotopage').bind('keyup', function(event) {
+　　if (event.keyCode == "13") {
+　　　　//回车执行查询
+　　　　$('#gotopage').blur();
+　　}
+});
+</script>
+{% endraw %}
