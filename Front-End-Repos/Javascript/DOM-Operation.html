@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operate dom</title>
+</head>
+
+<body>
+  <div id="aa">测试</div>
+  <script>
+    //定义立即执行函数，传入全局对象window  
+    (function (w) {
+      //定义函数，实现去new的操作，
+      function doquery(id) {
+        //定义类 
+        function DoQuery(id) {
+          if (id.match(/^\#([a-zA-Z]+)\S$/ig)) {
+            //根据id查找    
+            this.ele = document.getElementById(id.substring(1))
+          }
+          else if (id.match(/^\.([a-zA-Z]+)\S$/ig)) {
+            this.ele = document.getElementsByClassName(id.substring(1))
+          }
+          //返回对象
+          return this
+        }
+
+        //利用原型添加设置html的方法
+        DoQuery.prototype.html = function (val) {
+          //返回对象，执行后可链式操作
+          this.ele.innerHTML = val
+          return this
+        }
+
+        //添加设置属性的方法
+        DoQuery.prototype.attr = function (key, val) {
+          this.ele.setAttribute(key, val)
+          return this
+        }
+
+        //添加设置样式的方法
+        DoQuery.prototype.css = function (key, val) {
+          this.ele.style[key] = val
+          return this
+        }
+
+        DoQuery.prototype.on = function (event, fun) {
+          if(this.ele.nodeType === 1) {
+            this.ele.addEventListener(event, fun, false)
+            return this
+          } else {
+            for(let obj of this.ele) {
+              this.ele = obj
+              this.ele.addEventListener(event, fun, false)
+            }
+            // 这里还要完善一下，实现链式操作 todo
+            return this
+          }
+          
+         
+        }
+
+        DoQuery.prototype.remove = function() {
+          this.ele.remove()
+        }
+
+        // 去new处理，返回实例对象
+        return new DoQuery(id)
+      }
+
+      // 添加延时静态方法，可通过函数名直接使用
+      doquery.wait = function (time, fun) {
+        setTimeout(fun, time)
+      }
+
+      // 添加遍历迭代静态方法
+      doquery.each = function (arr, callback) {
+        for (var key in arr) {
+          callback(key, arr[key])
+        }
+      }
+
+      w.$$ = w.doquery = doquery
+    })(window)
+
+    window.onload = function () {
+      // 类的使用和操作
+      $$("#aa").attr("bb", "456").css("height", "200px")
+      $$.wait(5000, function(){
+        $$('#aa').html('Hello SetTimeout')
+      })
+
+      $$('#aa').on('click', function(){
+        $$('#aa').html('click-event').css('color', 'red')
+      })
+
+      $$.each([1,2,3,4,5,6], function(index, val){
+        let divDom = document.createElement('div')
+        divDom.className += ' test demo'
+        divDom.id = 'test' + index
+        divDom.innerHTML = index +' : ' + val
+        document.body.appendChild(divDom)
+      })
+
+      $$('.test').on('click', function(e){
+        console.log(e.target.id);
+       $$('#' + e.target.id).remove()
+      })
+    }
+
+  </script>
+</body>
+
+</html>

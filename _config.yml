@@ -42,7 +42,7 @@ featured-condition-size: 0              ## 相同标签数量大于这个数，�
 ## https://jekyllrb.com/docs/permalinks/
 permalink: /:categories/:title.html ## permalink special page url. ## permalink: /:categories/:year/:month/:day/:title/  if permalink:none then url should be /:categories/:title
 
-exclude: [Front-End-Repos, github-page-knowledges] ## exclude generate files under special folder
+exclude: [Front-End-Repos, github-page-knowledges, books] ## exclude generate files under special folder
 
 # plugins: [jekyll-paginate]
 plugins:

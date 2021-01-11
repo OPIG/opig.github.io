@@ -714,3 +714,8 @@ users
 });
 // "tom@example.com"
 上面代码中，先产生一个所有 Email 地址组成的数组，然后再过滤出以t开头的 Email 地址，最后将它打印出来。
+
+
+### [防抖 debounce](https://davidwalsh.name/function-debounce)   [节流 throttle](https://www.cnblogs.com/momo798/p/9177767.html)
+
+### [JavaScript加载器](https://davidwalsh.name/curljs)
