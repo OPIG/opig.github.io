@@ -1,19 +1,101 @@
 ﻿<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>jquery 联系</title>
-	<meta charset="utf-8" />
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Practice<</title>
     <script src="../public_libs/script/jQuery/jquery-1.4.1.min.js" ></script>
+    <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  </head>
+  <body>
     
-    <script type="text/javascript" lang="javascript">
-        alert(1);
-    </script>
-</head>
+    <script>
+      // JQuery的extend扩展方法 https://www.cnblogs.com/wanlibingfeng/p/6367756.html 
+      // $.extend({
+      //   hello:function(){alert('hello')}
+      // })
 
-<body>
-    <div class="header"></div>
-    <div class="container"></div>
-    <div class="footer"></div>
-</body>
+      // $.fn.extend({
+      //   chat: function(){alert('chat')}
+      // })
+
+      // $.hello()
+      // var ct = new jQuery()
+      // ct.chat()
+
+      // $.extend({
+      //   net:{}
+      // })
+
+      // $.extend(
+      //   $.net, {
+      //     hi: function(){alert('hi')}}
+      // )
+      // $.net.hi()
+      
+      var src1 = {name: 'John', family:'Wu', location: {city: 'Shanghai', county: 'China', province: 'shanghai'}}
+      var src2 = {name: 'Judy', last: 'Yuan', location: {city: 'Boston', county: 'USA', time:'NY'}}
+      // 浅拷贝
+      var result1 = $.extend(false, {}, 
+        src1, src2        
+      )
+      console.log(result1, 'result1->')
+
+      // 深拷贝
+      var result2 = $.extend(true, {}, 
+        src1, src2        
+      )
+      console.log(result2, 'result2->')
+
+      var result3 = $.extend(src1,src2)
+      console.log(result3)
+
+      console.log($)
+      console.log(jQuery)
+
+      console.log(jQuery.prototype)
+    </script>
+  <div class="cont">
+    <div class="grade">年级</div>
+  </div>
+   
+    <script>
+      var events = {
+        'click .grade': e => {
+          const index = $(e.target).get(0).selectedIndex;
+          console.log(1);
+          // this.handleGradeChange(index);
+        }
+      }
+      var self = this
+       $.each(events, function (key, val) {
+        const callback = function (e) {
+          if ($.isFunction(val)) {
+            return val.call(self, e);
+          } else {
+            return self[val](e);
+          }
+        };
+        const arr = splitEventKey(key, self.eventType);
+        $('.cont').on(arr[0], arr[1], callback);
+    });
+
+    function splitEventKey(eventKey, defaultEventType='click') {
+      let type;
+      let selector;
+      const arr = eventKey.split(' ');
+      if (arr.length == 1) {
+        type = defaultEventType;
+        selector = eventKey;
+      } else {
+        type = arr.shift();
+        selector = arr.join(' ');
+      }
+      return [type, selector];
+  }
+
+
+      //$('.grade').on('click',callback)
+    </script>
+  </body>
 </html>
