@@ -93,20 +93,61 @@ n的链接分 软链接 和 硬链接 两种：
 
 
 ## 命令配置
-nginx配置单页应用之路由匹配以及404页面
+### nginx配置单页应用之路由匹配以及404页面
 ```
-location / {
-  try_files $uri $uri/ /index.html;
-}
+  location / {
+    try_files $uri $uri/ /index.html;
+
+    # if (!-e $request_filename){
+    # 	rewrite ^(.*)$ /$1.html	break;
+    # }
+  }
+
+  error_page  404           = [the page that you want to redirect to, for example https://www.baidu.com];
+  error_page  403           = [the page that you want to redirect to, for example https://www.baidu.com];
+
 
 ```
 ```
-try_files指令
-语法：try_files file ... uri 或 try_files file ... = code
-默认值：无
-作用域：server location
-这种写法try_files $uri $uri/ /index.html;就会导致所有找不到的url都会跳转到index.html文件。
+  try_files指令
+  语法：try_files file ... uri 或 try_files file ... = code
+  默认值：无
+  作用域：server location
+  这种写法try_files $uri $uri/ /index.html;就会导致所有找不到的url都会跳转到index.html文件。
+
 ```
+
+### 配置https(443)
+```
+  server {
+        listen 80;
+        server_name [server name];
+        return 301 https://$server_name$request_uri;
+  }
+  server {
+        listen 443 default ssl;
+        ssl_certificate   [pem path].pem;
+        ssl_certificate_key  [key path].key;
+        server_name [server_name];
+
+        root [root path];
+
+        location / {
+                try_files $uri $uri/ /index.html;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+                proxy_set_header X-NginX-Proxy true;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                expires 300;
+        }
+  }
+
+```
+
 
 ## 错误解决方案
 1. [emerg] unexpected "}"  

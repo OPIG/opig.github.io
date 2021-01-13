@@ -15,7 +15,7 @@ description: >
  Keep learning and practice more.
 baseurl: ""
 url: "https://git.zhuzhuw.cn"          ## 这个就是填写你的博客地址
-keyword: "front-end, front end,博客, 个人网站, 互联网, Web, JavaScript, 前端" ##关键词
+keyword: "front-end, front end,博客, 个人网站, 互联网, Web, JavaScript, 前端, Atom, Yuan, Atom Yuan" ##关键词
 
 ## Sidebar settings
 ## 是否开启侧边栏.
