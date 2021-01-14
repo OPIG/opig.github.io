@@ -9,32 +9,37 @@ String
 ===
 #### 情景模式-参数为正数:
 ```
-slice()和substring()第二次参数指定的是字符串最后一个字符后面的位置;
-substr()第二个参数指定返回的字符串个数;
+  slice()和substring()第二次参数指定的是字符串最后一个字符后面的位置;
+  substr()第二个参数指定返回的字符串个数;
+
 ```
-```
-var string = 'hello world';
+```javascript
+   var string = 'hello world';
    console.log(string.slice(3));  //lo world
    console.log(string.substring(3));  //lo world
    console.log(string.substr(3));  //lo world
    console.log(string.slice(3, 7));  //lo w
    console.log(string.substring(3, 7)); //lo w
    console.log(string.substr(3, 7)); //lo worl
-   ```
+
+```
 #### 情景模式-参数为负数:
- ```
+ ```javascript
+
  slice() 会将所有的负数于字符串的长度相加
  substr() 会将第一个负参数与字符串长度相加，第二个负参数转化为 0
  substring() 将所有的负参数转化为 0
+
 ```
-```
- var string = 'hello world';  // length = 11
+```javascript
+    var string = 'hello world';  // length = 11
     console.log(string.slice(-3));  // rld    slice(8)
     console.log(string.substring(-3));  //hello world  substring(0)
     console.log(string.substr(-3));  // rld  substr(8)
     console.log(string.slice(3, -4));  //lo w slice(3, 7)
     console.log(string.substring(3, -4)); //hel   substring(3, 0)
     console.log(string.substr(3, -4)); //  ''   substring(3, 0)
+
 ```
 
 substr, substring
@@ -80,43 +85,44 @@ length 可选。在返回的子字符串中应包括的字符个数。
 如果没有指定该参数，则子字符串将延续到stringObject的最后。
 
 举例：
-```
-var str = "0123456789"; 
-alert(str.substring(0));------------"0123456789" 
-alert(str.substring(5));------------"56789" 
-alert(str.substring(10));-----------"" 
-alert(str.substring(12));-----------"" 
-alert(str.substring(-5));-----------"0123456789" 
-alert(str.substring(-10));----------"0123456789" 
-alert(str.substring(-12));----------"0123456789" 
-alert(str.substring(0,5));----------"01234" 
-alert(str.substring(0,10));---------"0123456789" 
-alert(str.substring(0,12));---------"0123456789" 
-alert(str.substring(2,0));----------"01" 
-alert(str.substring(2,2));----------"" 
-alert(str.substring(2,5));----------"234" 
-alert(str.substring(2,12));---------"23456789" 
-alert(str.substring(2,-2));---------"01" 
-alert(str.substring(-1,5));---------"01234" 
-alert(str.substring(-1,-5));--------"" 
+```javascript
+  var str = "0123456789"; 
+  alert(str.substring(0));------------"0123456789" 
+  alert(str.substring(5));------------"56789" 
+  alert(str.substring(10));-----------"" 
+  alert(str.substring(12));-----------"" 
+  alert(str.substring(-5));-----------"0123456789" 
+  alert(str.substring(-10));----------"0123456789" 
+  alert(str.substring(-12));----------"0123456789" 
+  alert(str.substring(0,5));----------"01234" 
+  alert(str.substring(0,10));---------"0123456789" 
+  alert(str.substring(0,12));---------"0123456789" 
+  alert(str.substring(2,0));----------"01" 
+  alert(str.substring(2,2));----------"" 
+  alert(str.substring(2,5));----------"234" 
+  alert(str.substring(2,12));---------"23456789" 
+  alert(str.substring(2,-2));---------"01" 
+  alert(str.substring(-1,5));---------"01234" 
+  alert(str.substring(-1,-5));--------"" 
 
-alert(str.substr(0));---------------"0123456789" 
-alert(str.substr(5));---------------"56789" 
-alert(str.substr(10));--------------""
-alert(str.substr(12));--------------""
-alert(str.substr(-5));--------------"56789"
-alert(str.substr(-10));-------------"0123456789"
-alert(str.substr(-12));-------------"0123456789"
-alert(str.substr(0,5));-------------"01234"
-alert(str.substr(0,10));------------"0123456789"
-alert(str.substr(0,12));------------"0123456789"
-alert(str.substr(2,0));-------------""
-alert(str.substr(2,2));-------------"23"
-alert(str.substr(2,5));-------------"23456"
-alert(str.substr(2,12));------------"23456789"
-alert(str.substr(2,-2));------------""
-alert(str.substr(-1,5));------------"9"
-alert(str.substr(-1,-5));-----------""   
+  alert(str.substr(0));---------------"0123456789" 
+  alert(str.substr(5));---------------"56789" 
+  alert(str.substr(10));--------------""
+  alert(str.substr(12));--------------""
+  alert(str.substr(-5));--------------"56789"
+  alert(str.substr(-10));-------------"0123456789"
+  alert(str.substr(-12));-------------"0123456789"
+  alert(str.substr(0,5));-------------"01234"
+  alert(str.substr(0,10));------------"0123456789"
+  alert(str.substr(0,12));------------"0123456789"
+  alert(str.substr(2,0));-------------""
+  alert(str.substr(2,2));-------------"23"
+  alert(str.substr(2,5));-------------"23456"
+  alert(str.substr(2,12));------------"23456789"
+  alert(str.substr(2,-2));------------""
+  alert(str.substr(-1,5));------------"9"
+  alert(str.substr(-1,-5));-----------""   
+
 ```
 
 Array
@@ -697,25 +703,30 @@ a.lastIndexOf(7) // -1
 链式使用
 上面这些数组方法之中，有不少返回的还是数组，所以可以链式使用。
 
-var users = [
-  {name: 'tom', email: 'tom@example.com'},
-  {name: 'peter', email: 'peter@example.com'}
-];
+```javascript
 
-users
-.map(function (user) {
-  return user.email;
-})
-.filter(function (email) {
-  return /^t/.test(email);
-})
-.forEach(function (email) {
-  console.log(email);
-});
-// "tom@example.com"
+  var users = [
+    {name: 'tom', email: 'tom@example.com'},
+    {name: 'peter', email: 'peter@example.com'}
+  ];
+
+  users
+  .map(function (user) {
+    return user.email;
+  })
+  .filter(function (email) {
+    return /^t/.test(email);
+  })
+  .forEach(function (email) {
+    console.log(email);
+  });
+  // "tom@example.com"
+
+```
 上面代码中，先产生一个所有 Email 地址组成的数组，然后再过滤出以t开头的 Email 地址，最后将它打印出来。
 
 
-### [防抖 debounce](https://davidwalsh.name/function-debounce)   [节流 throttle](https://www.cnblogs.com/momo798/p/9177767.html)
+### [防抖 debounce](https://davidwalsh.name/function-debounce) 
+### [节流 throttle](https://www.cnblogs.com/momo798/p/9177767.html)
 
 ### [JavaScript加载器](https://davidwalsh.name/curljs)

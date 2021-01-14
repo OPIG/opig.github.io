@@ -91,6 +91,9 @@ n的链接分 软链接 和 硬链接 两种：
 >ll 软连接(softlink_file) 查看到软连指向的具体文件
 
 
+## 关闭nginx
+`nginx -s stop` 或 `pkill nginx`
+
 ## 宝塔
 [宝塔Linux面板https://www.bt.cn/](https://www.bt.cn/)： 是提升运维效率的服务器管理软件，支持一键LAMP/LNMP/集群/监控/网站/FTP/数据库/JAVA等100多项服务器管理功能。
 `bt default` 查看面板地址，登录用户名密码
@@ -154,6 +157,18 @@ n的链接分 软链接 和 硬链接 两种：
 
 ```
 
+### 配置请求某个简短内容的文件   
+
+场景如：微信公众号开发过程中需要配置`JS接口安全域名`   
+![JS接口安全域名](../assets/img/wechat-js-config.png)
+
+```
+  location /[fileName].txt {
+      return 200 '[short content]';
+  }
+
+```
+
 
 ## 错误解决方案
 1. [emerg] unexpected "}"  
@@ -169,6 +184,9 @@ n的链接分 软链接 和 硬链接 两种：
 
 3. 查看80端口运行的程序  
 `netstat -anp | grep :80`
+
+## Reference   
+[Nginx 服务器安装及配置文件详解](https://www.cnblogs.com/bluestorm/p/4574688.html)
 
 
 

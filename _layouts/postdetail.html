@@ -50,10 +50,10 @@ layout: default
 </article>
 
 <!-- gitalk start -->
-<!-- <link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css"> -->
-<!-- <script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script> -->
-<!-- <div id="gitalk-container" style="margin: 30px;padding-bottom: 30px;"></div> -->
-<!-- <script src="/assets/js/me.min.js"></script> -->
+<link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+<div id="gitalk-container" style="margin: 30px;padding-bottom: 30px;"></div>
+<script src="/assets/js/me.min.js"></script>
 <!-- gitalk end -->
 {% comment %}
 reference: https://blog.csdn.net/madlaxnoir/article/details/100749129?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1.control
@@ -133,3 +133,15 @@ console.log(m);
 	</script>
 <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
 {% endcomment %}
+
+<script type='module'>
+  import MouseReact from '../assets/js/mouse-react.js'
+  const mouse = new MouseReact()
+  $('body').on('click',function(e){
+    mouse.onClick(e)
+  })
+
+  $('body').on('mousemove', function(e){
+    mouse.onMouseMove(e)
+  })
+</script>
