@@ -142,6 +142,8 @@ console.log(m);
   })
 
   $('body').on('mousemove', function(e){
-    mouse.onMouseMove(e)
+    if(!(e.target.nodeName === 'A' || $(e.target.parentElement).closest('a').length !== 0)) {
+      mouse.onMouseMove(e)
+    }
   })
 </script>
