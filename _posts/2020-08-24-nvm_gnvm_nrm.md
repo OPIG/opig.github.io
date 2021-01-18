@@ -47,9 +47,12 @@ node -v
 
 
 ### npm 
-查看当前npm的镜像：`npm config get registry`
 
-设置淘宝的镜像:`npm config set registry https://registry.npm.taobao.org`, 切换回来`npm config set registry https://registry.npmjs.org`
+查看当前npm的镜像：`npm [config 可选] get registry`
+
+设置淘宝的镜像: `npm config set registry [https://registry.npm.taobao.org]`
+
+切换npm源： `npm config set registry [https://registry.npmjs.org]`
 
 ### cnpm 
 淘宝团队做的国内镜像，因为npm的服务器位于国外可能会影响安装。淘宝镜像与官方同步频率目前为 10分钟 一次以保证尽量与官方服务同步

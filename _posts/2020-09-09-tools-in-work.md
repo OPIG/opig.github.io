@@ -3,7 +3,7 @@
 ### 设计相关 design, image
 1. `Sketch (for Mac)`, also you can use `Lunacy (for Windows)`
 2. 蓝湖[https://lanhuapp.com/](https://lanhuapp.com/)
-3. ppduck [http://ppduck.com/](http://ppduck.com/) 图片压缩软件
+3. ppduck [http://ppduck.com/](http://ppduck.com/) 图片压缩软件, 熊猫压缩在线, tinypng压缩
 4. photoshop
 
 
