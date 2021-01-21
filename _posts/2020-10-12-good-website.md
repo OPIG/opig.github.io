@@ -31,3 +31,5 @@ need to check:
 
 [首屏加载](https://aotu.io/) https://aotu.io/  https://www.cnblogs.com/xinyueBlog/p/6502191.html
 
+[iis部署Nodejs] (https://www.xb02.com/article/191/) 1. 需要[iis的url重写插件](https://www.iis.net/downloads/microsoft/url-rewrite) 2.[安装iisnode](https://github.com/tjanczuk/iisnode/wiki/iisnode-releases)
+
