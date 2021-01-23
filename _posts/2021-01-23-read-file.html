@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function load(filename) {
+      let xhr = new XMLHttpRequest()
+      let okStatus = document.location.protocol === 'file:' ? 0 : 200
+      xhr.open('get', filename, false)
+      xhr.overrideMimeType('text/html;charset=urf-8')
+      xhr.send(null)
+      return xhr.status === okStatus ? xhr.responseText : null
+    }
+
+    let text = load('./Js-dom.html')
+    console.log(text,'--->')
+    let dom = document.createElement('fragment')
+    dom.textContent = text
+    document.body.appendChild(dom)
+  </script>
+</body>
+</html>
