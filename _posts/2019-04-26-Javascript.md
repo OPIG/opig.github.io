@@ -730,3 +730,49 @@ a.lastIndexOf(7) // -1
 ### [节流 throttle](https://www.cnblogs.com/momo798/p/9177767.html)
 
 ### [JavaScript加载器](https://davidwalsh.name/curljs)
+
+
+
+### javascript 进制转换(2进制、8进制、10进制、16进制之间的转换)
+//十进制转其他    
+var x=110;     
+alert(x);     
+alert(x.toString(8));     
+alert(x.toString(32));     
+alert(x.toString(16));     
+//其他转十进制  
+var x='110';     
+alert(parseInt(x,2));     
+alert(parseInt(x,8));     
+alert(parseInt(x,16));     
+//其他转其他     
+//先用parseInt转成十进制再用toString转到目标进制    
+alert(String.fromCharCode(parseInt(141,8)))     
+alert(parseInt('ff',16).toString(2));   
+#### 十进制转换为二进制
+```
+var toBin = (n) => {
+  if(n == 0) return '0';
+  var res = '';  
+  while(n != 0) {
+      res = n % 2 + res
+      n = parseInt(n / 2)
+   }  
+   return res;
+}
+
+```
+
+#### 二进制转换为十进制
+```
+var toDecimal = (s) => {
+  var res = 0;  
+  var arr = s.split('');
+  var len = arr.length;
+  for(var i = 0;i<len;i++) {
+    res += +arr[i] * Math.pow(2, len-1-i)    
+  }
+  return res;  
+}
+
+```
