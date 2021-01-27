@@ -776,3 +776,39 @@ var toDecimal = (s) => {
 }
 
 ```
+
+
+### 浅拷贝(shallowCopy) 深拷贝(deepCopy)
+
+#### 浅拷贝(shallowCopy)
+``` javascript
+  //此递归方法不包含数组对象
+  var obj = { a:1, arr: [2,3] };
+  var shallowObj = shallowCopy(obj);
+
+  function shallowCopy(src) {
+    var newobj = {};
+    for (var prop in src) {
+      if (src.hasOwnProperty(prop)) {
+        newobj[prop] = src[prop];
+      }
+    }
+    return newobj;
+  }
+
+```
+
+#### 深拷贝(deepCopy)
+``` javascript
+  function deepCopy(obj) {
+    var newObj = obj instanceof Array ? [] : {}
+    if(typeof obj === 'object') {
+      for (i in obj) {
+        newObj[i] = typeof obj[i] === 'object' ? deepCopy(obj[i]) : obj[i]
+      }
+    }
+    
+    return newObj
+  }
+
+```

@@ -33,3 +33,5 @@ need to check:
 
 [iis部署Nodejs] (https://www.xb02.com/article/191/) 1. 需要[iis的url重写插件](https://www.iis.net/downloads/microsoft/url-rewrite) 2.[安装iisnode](https://github.com/tjanczuk/iisnode/wiki/iisnode-releases)
 
+[代码编辑，拖拽](https://fex-team.github.io/amis-editor-demo) <https://fex-team.github.io/amis-editor-demo>
+
