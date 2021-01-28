@@ -1,0 +1,164 @@
+<https://www.cnblogs.com/chamblee/archive/2012/05/23/2514799.html>
+
+/*
+ *功能：拖动元素
+ *Author：LQB
+ *时间：2009-1-7
+ * #include JEvents
+*/
+ var JDrag = function(){
+        this.src_element = null;//触发的元素
+        this.src_top = 0;       //src_element的top
+        this.src_left = 0 ;     //src_element的left
+        this.src_right = 0 ;    //src_element的right
+        this.src_bottom = 0;    //src_element的bottom
+        this.src_width = 0;     //src_element的width
+        this.src_height = 0;    //src_element的height
+        this.src_mouseX = 0;    //源X坐标
+        this.src_mouseY = 0;    //源Y坐标
+        this.src_Event = null;  //源事件
+        
+        this.offsetX = 0;       //事件坐标X偏移量
+        this.offsetY = 0;       //事件坐标Y偏移量
+        this.eventX = 0;        //事件坐标X
+        this.eventY = 0;        //事件坐标Y
+        this.offsetEvent = null;//事件
+        
+        var m_isMoveing = false; 
+        var m_me = this;        //用于私有成员访问公有成员 
+        /*--------------------------------以下是事件------------------------------*/
+        var m_events=null;//事件对象
+        var InitEvent = function(){
+            m_events = new JEvents();
+            m_events.addEvent("dragstart","draging","dragend");//添加事件
+        }
+        var m_addListener = function(eName,fn,scope){
+            if(typeof(fn)!= "function"){
+                throw "Event handle must be function!";
+            }
+            m_events.addListener(eName,fn,scope);
+        };
+        var m_fireEvent = function(eName){
+            m_events.fireEvent(eName);
+        }
+        //以下三个方法是对外的事件委托
+        this.ondragstart=function(fn,scope){
+            m_addListener("dragstart",fn,scope);
+        };
+        this.ondraging=function(fn,scope){
+            m_addListener("draging",fn,scope);
+        };
+        this.ondragend=function(fn,scope){
+            m_addListener("dragend",fn,scope);
+        };
+        /*--------------------------------事件完毕--------------------------------*/
+        //公有方法       
+        this.DragStart = function(e){
+            var event = window.event || e;
+            if(event.srcElement)
+                this.src_element = event.srcElement;
+            else
+                this.src_element = event.target;
+            
+            this.src_top = this.src_element.style.top;
+            this.src_left = this.src_element.style.left;
+            this.src_right = this.src_element.style.right;
+            this.src_bottom = this.src_element.style.bottom;
+            this.src_width =  parseInt(this.src_element.style.width);
+            this.src_height = parseInt(this.src_element.style.height);
+ 
+            this.src_Event = event;
+            this.src_mouseX = event.clientX;
+            this.src_mouseY = event.clientY;
+            m_isMoveing = true;
+            
+            //为了平滑移动效果,把MOUSEMOVE事件的捕获交给document
+            if(this.src_element.setCapture){
+                this.src_element.setCapture();
+                JEvents.bind(this.src_element,"onmousemove",this.Draging,this);
+                JEvents.bind(this.src_element,"onmouseup",this.DragEnd,this);
+            }
+            else if(window.captureEvents){
+                window.captureEvents(Event.MOUSEMOVE|Event.MOUSEUP);
+                JEvents.bind(document,"onmousemove",this.Draging,this);
+                JEvents.bind(document,"onmouseup",this.DragEnd,this);
+            }
+            m_fireEvent("dragstart");//触发开始拖动事件
+                
+        };
+        this.Draging = function(e){
+            if(m_isMoveing){
+                var event = window.event || e;
+                this.offsetX = event.clientX - this.src_mouseX;
+                this.offsetY = event.clientY - this.src_mouseY;
+                this.eventX = event.clientX;
+                this.eventY = event.clientY;
+                this.offsetEvent = event;
+                m_fireEvent("draging");//触发拖动事件
+            }
+        }
+        this.DragEnd = function(e){
+            if(m_isMoveing){
+                //为了平滑移动效果,把MOUSEMOVE事件的捕获交给document
+                if(this.src_element.releaseCapture){
+                    this.src_element.releaseCapture();
+                    JEvents.unbind(this.src_element,"onmousemove",this.Draging);
+                    JEvents.unbind(this.src_element,"onmouseup",this.DragEnd);
+                }
+                else if(window.captureEvents){
+                    window.captureEvents(Event.MOUSEMOVE|Event.MOUSEUP);
+                    JEvents.unbind(document,"onmousemove",this.Draging); 
+                    JEvents.unbind(document,"onmouseup",this.DragEnd);
+                }
+                m_fireEvent("dragend");//触发结束拖动事件
+                reset();
+            }
+        }
+        var reset = function(){
+            m_isMoveing = false;
+            m_me.offsetEvent=null;
+            m_me.src_Event = null;
+            m_me.src_element=null;
+            m_me.src_top = 0;
+            m_me.src_left = 0;
+            m_me.src_right = 0;
+            m_me.src_bottom = 0;
+            m_me.src_width = 0;
+            m_me.src_height = 0;
+            m_me.src_mouseX = 0;
+            m_me.src_mouseY = 0;
+            m_me.offsetX = 0;
+            m_me.offsetY = 0;
+            m_me.eventX = 0;
+            m_me.eventY = 0;
+        }
+        /*-------------------------以下是构造方法---------------------------------*/
+        InitEvent();
+
+
+
+
+        关于JDrag的调用，可以参考以下代码：
+
+
+        var DragSimple=function(el){
+          var m_Drag = null;
+          var InitDrag = function(){
+              m_Drag = new JDrag();
+              m_Drag.ondragstart(Drag_start,m_me);     //开始拖拽
+              m_Drag.ondraging(Drag_ing,m_me);         //拖拽中
+              m_Drag.ondragend(Drag_end,m_me);         //拖拽结束
+          }; 
+          var Drag_start=function(){
+              };
+          var Drag_ing=function(){
+      　　　　　if(m_Drag.eventX >= m_Drag.src_mouseX){//向右移动
+                  if(m_Drag.eventY>=m_Drag.src_mouseY){//向右下移动
+      　　　　　　　　　//拖动处理代码
+          　　　｝
+      　　　　　｝
+              };
+          var Drag_end=function(){
+             };
+          InitDrag();
+          JEvents.bind(el,"onmousedown",m_Drag.DragStart,m_Drag);//当mousedown时触发拖拽对象，开始拖动
