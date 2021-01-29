@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-type" content="text/html" charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no">
+    <title></title>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 60 * (clientWidth / 750) + 'px';
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        body{width:100%;}
+        div{line-height:100px;}
+        .bg{width:100%;height:800px;background: #c0c0c0;color:#fff;line-height:120px;}
+        .mask{
+            position:fixed;top:0;left:0;right:0;bottom:0;background: rgba(0,0,0,.5);
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="bg">
+    我是背景上的字1 <br> 我是背景上的字 2<br> 我是背景上的字 3<br> 我是背景上的字4 <br>
+    我是背景上的字 <br> 我是背景上的字 <br> 我是背景上的字 <br> 我是背景上的字 <br>
+</div>
+<div class="mask" style="display:none">
+   我是遮罩层上的字 <br> 我是遮罩层上的字 <br> 我是遮罩层上的字 <br> 我是遮罩层上的字 <br>
+    我是遮罩层上的字 <br> 我是遮罩层上的字 <br> 我是遮罩层上的字 <br> 我是遮罩层上的字 <br>
+</div>
+<script>
+    var mask= document.getElementsByClassName('mask')[0];
+    var bg=document.getElementsByClassName('bg')[0];
+    bg.addEventListener('click',function(){
+           mask.style.display='block';
+            document.body.style.position='fixed';
+    });
+    mask.addEventListener('click',function(){
+        mask.style.display='none';
+        document.body.style.position='';
+    });
+</script>
+</body>
+</html>
