@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>markdown convert</title>
+  <script src="markdown-convert.js"></script>
+</head>
+
+<body>
+  <input id='input_file' type="file" placeholder='please choose your markdown file' />
+  <div> <button class='btn convert-btn' id="convert_btn" style='display:none'><span>Convert</span></button></div>
+  <div id="content"></div>
+
+  <script>
+    var convertBtnDom = document.getElementById('convert_btn')
+    var inputFileDom = document.getElementById('input_file')
+    var contentDom = document.getElementById('content')
+    var converter = new Markdown.Converter()
+
+    // 上传文件
+    addEvent(inputFileDom, 'change', function (e) {
+      console.table(e.target.files);
+      console.table(e.target.value);
+      if (input_file.files.length) {
+        fileReader = new FileReader()
+        fileReader.readAsText(input_file.files[0])
+        fileReader.onload = function () {
+          contentDom.innerHTML = ''
+          fileReader.result.split(/\n/).forEach(function (item, i) {
+            contentDom.innerHTML += converter.makeHtml(item)
+          })
+        }
+      } else {
+        alert('请选择文件')
+      }
+    })
+
+    function fileConvert() {
+      // 转化并显示文件
+      addEvent(convertBtnDom, 'click', function (e) {
+        console.log(e.target);
+
+
+        var xhmHttp
+        if (window.XMLHttpRequest) {
+          xmlHttp = new XMLHttpRequest()
+        } else {
+          xmlHttp = new ActiveObject('Microsoft.XMLHttp')
+        }
+
+        xmlHttp.onreadystatechange = function () {
+          if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+            console.log(typeof xmlHttp.responseText);
+            console.table(xmlHttp.responseText.split(/\s/));
+            // contentDom.innerHTML = converter.makeHtml(xmlHttp.responseText)
+            xmlHttp.responseText.split(/\n/).forEach(function (item, i) {
+              contentDom.innerHTML += converter.makeHtml(item)
+            })
+          }
+        }
+
+        xmlHttp.open('get', './test.md')
+        xmlHttp.send()
+      })
+    }
+
+    // 来源： https://www.cnblogs.com/dacuotecuo/p/3510823.html
+    function addEvent(elm, evType, fn, useCapture) {
+      useCapture = useCapture ? useCapture : false
+      try {
+        if (elm.addEventListener) {
+          elm.addEventListener(evType, fn, useCapture)
+          return true
+        } else if (elm.attachEvent) {
+          // IE <=8
+          var r = elm.attachEvent(evType, fn, useCapture)
+          return r
+        }
+      } catch (e) {
+        console.log('facing some error')
+      }
+
+    }
+  </script>
+</body>
+
+</html>
