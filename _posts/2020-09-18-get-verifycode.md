@@ -31,7 +31,7 @@ xhrFields: {
 JQUery 3.2.1 成功获取验证码
 /** 获取验证码 */
 	function getVerifyCode(mobile) {
-		var postUrl = baseUrl + '/api/operation-web-server/v1/ow/verificationCode?mobile=' + mobile;
+		var postUrl = baseUrl + '/api/verificationCode?mobile=' + mobile;
 		$.ajax({
 			url: postUrl,
 			type: 'GET',
@@ -53,7 +53,7 @@ JQUery 3.2.1 成功获取验证码
 jQuery1.11.3 成功获取验证码
 
 function getVerifyCode(mobile) {
-        var postUrl = baseUrl + '/api/operation-web-server/v1/ow/verificationCode?mobile=' + mobile;
+        var postUrl = baseUrl + '/api/verificationCode?mobile=' + mobile;
         var $img = $('.img-authcode'); //接收验证码的img标签
         var $imgBox = $('.img-authcode-box');//存放验证码img标签的父级元素
         var windowUrl = window.URL || window.webkitURL;

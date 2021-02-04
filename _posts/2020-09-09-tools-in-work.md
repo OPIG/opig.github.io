@@ -34,6 +34,7 @@
 15. 图片/文字等转换成字符[http://life.chacuo.net/convertfont2char ](http://life.chacuo.net/convertfont2char), 比如说大佛注释. 也可以安装koroFileHeader插件, windows电脑，使用`ctrl+shift+p`键,Mac电脑使用`shift+command+p`键 输入> `注释图案` 或者是 > `codeDesign`就可以选择注释图案了.快捷键`shift+command+p` 输入> `随机` ，选中并回车即可随机生成一个注释图案.
 16. FeHelper(前端助手) 浏览器插件 网页格式化访问json文件
 17. Dark Reader 浏览器插件，更改浏览器主题色彩
+18. jmeter 压测
 
 
 graphql
