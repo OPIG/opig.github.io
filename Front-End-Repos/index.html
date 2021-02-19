@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>罗列该文件夹下所有文件目录</title>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <td id="textarea">
+      </td>
+    </tr>
+  </table>
+
+  想法：罗列出所有页面的地址
+  <script>
+    function searchFiles() {
+      var fso = new ActiveXObject("Scripting.FileSystemObject");
+      var f = fso.GetFolder('./');
+      var fc = new Enumerator(f.files);
+      var s = "";
+      for (; !fc.atEnd(); fc.moveNext()) {
+        s += fc.item();
+        s += "<br/>";
+      }
+      fk = new Enumerator(f.SubFolders);
+      for (; !fk.atEnd(); fk.moveNext()) {
+        s += fk.item();
+        s += "<br/>";
+      }
+
+      textarea.innerHTML = s
+    }
+    searchFiles() 
+  </script>
+</body>
+
+</html>
