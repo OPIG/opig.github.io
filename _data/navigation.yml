@@ -10,9 +10,9 @@
   {
     "name": 'Archives', "link":'/Archives/'
   },
-  {
-    "name": 'About', "link":'/About/'
-  },
+  # {
+  #   "name": 'About', "link":'/About/'
+  # },
   {
     "name": 'Author', "link": '/creator'
   }

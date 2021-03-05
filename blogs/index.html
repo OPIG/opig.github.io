@@ -31,14 +31,19 @@ title: blogs list
       {%endfor%}
   </ul>
   {% if site.posts.size > 10 %}
-  <div class="paginate">
-    <ul>
-      <li>1</li>
-      <li>...</li>
-      <li><input type="text" id="gotopage"></li>
-      <li class="lastpage">{{ site.posts.size | times: 1.0 | divided_by: 10 | ceil }}</li>
-    </ul>
-  </div>
+
+  <!--列表分页开始-->
+  <section class="blog-list-page paginaton-wrapper">
+    <div class="page"">
+      <a class="page-item active" href="javascript://" value="1">1</a>
+      <p class="jump-box">
+        <a class="pageInput"><input type="text" id="gotopage"></a>
+      </p>
+      <a class="page-item lastpage" href="javascript://">{{ site.posts.size | times: 1.0 | divided_by: 10 | ceil }}</a>
+    </div>
+  </section>
+  <!--列表分页结束-->
+
   {% endif %}
   <!-- Pagination links -->
   <!-- <div class="pagination-content">
@@ -85,8 +90,16 @@ title: blogs list
   $('#gotopage').blur(function () {
     let val = Number($('#gotopage').val().trim())
     if(val <= pageSize){
-      $('.page').addClass('hide')
-      $('.page-' + val).removeClass('hide')
+      $('.blog-list .page').addClass('hide')
+      $('.blog-list .page-' + val).removeClass('hide')
+    }
+
+    if(val ==1) {
+      $('.page-item').eq(0).addClass('active').siblings('.page-item').removeClass('active')
+    } else  if(val == pageSize){
+      $('.page-item').eq(1).addClass('active').siblings('.page-item').removeClass('active')
+    } else {
+      $('.page-item').removeClass('active')
     }
   })
 
@@ -97,5 +110,12 @@ $('#gotopage').bind('keyup', function(event) {
 　　　　$('#gotopage').blur();
 　　}
 });
+
+$('.blog-list-page.paginaton-wrapper .page-item').on('click', function(e){
+  var val = Number(e.target.innerText)
+  $(this).addClass('active').siblings('.page-item').removeClass('active')
+  $('.blog-list .page').addClass('hide')
+  $('.blog-list .page-' + val).removeClass('hide')
+})
 </script>
 {% endraw %}

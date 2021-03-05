@@ -914,6 +914,8 @@ samp {
     box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 4px;
     border-radius: 2px;
     width: 170px;
+    overflow: hidden;
+    height: 0;
   }
   /**
    * Animation
@@ -1509,7 +1511,7 @@ img::-moz-selection {
   line-height: 28px;
   margin: 0 2px;
   margin-bottom: 8px;
-  background: #f3f5f5;
+  background: #bbb101;
 }
 #tag_cloud a:hover,
 #tag_cloud .tag:hover,
