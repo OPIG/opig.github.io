@@ -38,6 +38,13 @@ sudo pacman-mirrors -i -c China -m rank # 配置国内源
 
 
 ```
+
+`sudo pacman -S base-devel` 
+不带devel后缀的package，通常只包含能让程序运行的动态库和配置文件。而带devel后缀的package，则包含使用这个package开发程序的所有的必需文件。比如头文件，等等。有时devel package还包含静态库。
+
+### check ip address:
+`ip addr`
+
 ### 屏幕自适应
 
 `sudo mhwd -a pci free 0300`

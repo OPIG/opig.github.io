@@ -49,6 +49,13 @@ ps. You also can use `ln` to make git globally.
 
 run `git --version` to check the git version.
 
+### SSH密钥 - 仍然要求输入密码和密码--解决
+
+1. Add Identity without Keychain 添加没有钥匙串的身份
+`ssh-add ~/.ssh/id_rsa`
+
+2. Add Identity Using Keychain 使用钥匙串添加身份
+`ssh-add -K ~/.ssh/id_rsa`
 
 ### reference
 [install git on linux ](https://www.cnblogs.com/wulixia/p/11016684.html)
