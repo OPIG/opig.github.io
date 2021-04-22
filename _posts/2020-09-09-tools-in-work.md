@@ -15,7 +15,7 @@
 
 ### 代码相关
 
-1. vscode 插件--> {gitLens, liveServer, Javascript(es6) code snippets, prettier - Code formatter, Simple React Snippets, Vetur, Vue2 Snippets, leetcode, PlantUML}
+1. vscode 插件--> {gitLens, liveServer, Javascript(es6) code snippets, prettier - Code formatter, Simple React Snippets, Vetur, Vue2 Snippets, leetcode, PlantUML, Bracket Pair Colorizer 2, ESLint}
 2. notepad++
 3. git
 4. SourceTree
@@ -45,3 +45,7 @@ Webassembly
 chrome devtool
 crypress测试
 语义化
+
+
+Visual Studio Code中使用ES6语法报错（比如使用扩展运算符...）.
+解决方法：vscode的 setting.json中添加 `"javascript.validate.enable": false`

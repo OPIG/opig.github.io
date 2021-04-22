@@ -60,7 +60,8 @@ SigLevel = Optional TrustedOnly
 Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 ```
 
-
+### 安装zsh(比bash控制台更丰富的智能提示)
+`sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 ### 常用pacman命令
 
 ```
@@ -146,6 +147,7 @@ chsh -s /bin/zsh
 ### Reference 
 [Manjaro折腾全记录]<https://www.jianshu.com/p/21c39bc4dd31>
 [【Hyper-V】与【VirtualBox】【VMware】冲突的解决方法]<https://blog.csdn.net/qwsamxy/article/details/50533007/>
+[manjaro 切换国内源及软件安装]<https://www.jianshu.com/p/2d096cd9ad61?utm_source=wechat_session>
 
 
 
