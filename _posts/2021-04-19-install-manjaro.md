@@ -45,6 +45,16 @@ sudo pacman-mirrors -i -c China -m rank # 配置国内源
 ### check ip address:
 `ip addr`
 
+### turn on ssh
+```
+systemctl enable sshd.service 开机启动 
+
+systemctl start sshd.service 立即启动   
+
+systemctl restart sshd.service 立即重启   
+
+```
+
 ### 屏幕自适应
 
 `sudo mhwd -a pci free 0300`
