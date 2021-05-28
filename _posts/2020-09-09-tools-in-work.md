@@ -41,7 +41,7 @@ graphql
 vscode使用技巧
 svelte框架
 serverless
-Webassembly
+Webassembly <https://lencx.github.io/book/wasm/rust_wasm_frontend.html>
 chrome devtool
 crypress测试
 语义化
