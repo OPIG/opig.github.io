@@ -28,6 +28,12 @@ gg（把关标定位到最上面），V（进入VISUAL模式），shift+g（选�
 
 `ps -ef|grep 21834` 根据进程ID查服务
 
+##### windows 查看端口号占用情况 
+`netstat -aon | findstr 80[端口号]`
+##### windows 查看进程Id（如5444） 
+`tasklist | findstr 5444`
+
+
 #### 7. `ps -C nginx -o pid` 查看到进程ID(如2253215)
 
 `ll /proc/2253215` 根据进程ID查看具体操作(cwd进入的文件， exe执行的操作)

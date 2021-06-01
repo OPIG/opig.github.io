@@ -185,6 +185,20 @@ n的链接分 软链接 和 硬链接 两种：
 3. 查看80端口运行的程序  
 `netstat -anp | grep :80`
 
+## openssl generate local cert
+1. `openssl> genrsa -des3 -out {path}/server.key 2048`
+
+2. `openssl> req -new -key {path}/server.key -out {path}/server.csr`
+if we face `Unable to load config info from /usr/local/ssl/openssl.cnf` issue
+we can use openssl.cnf in git
+`openssl> req -new -key {path}/server.key -out {path}/server.csr -config "C:\Program Files\Git\mingw64\ssl\openssl.cnf"` 
+
+3. 生成秘钥 写RSA秘钥
+`openssl> rsa -in {path}/server.key -out {path}/server_nopwd.key`
+
+4. 生成CA证书 获取私钥
+`openssl> x509 -req -days 3650 -in {path}/server.csr -signkey {path}/server_nopwd.key -out {path}/server.crt`
+
 ## Reference   
 [Nginx 服务器安装及配置文件详解](https://www.cnblogs.com/bluestorm/p/4574688.html)
 
