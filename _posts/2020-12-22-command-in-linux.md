@@ -83,6 +83,14 @@ gg（把关标定位到最上面），V（进入VISUAL模式），shift+g（选�
   说明：chown将指定文件的拥有者改为指定的用户或组。用户可以是用户名或用户ID。组可以是组名或组ID。文件是以空格分开的要改变权限的文件列表，支持通配符。
 
 
+#### 查看防火墙开放的端口
+`firewall-cmd --list-all`
 
+#### 设置防火墙开放的端口
+`firewall-cmd --add-service=http --permanent`
+`sudo firewall-cmd --add-port=27017/tcp --permanent`
+
+#### 重启防火墙
+`firewall-cmd --reload`
 
 
