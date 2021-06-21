@@ -5,8 +5,7 @@ tags: [python]
 
 ### 配置环境
 
-我看很多人学习python都用的pycharm，确实比较强大，但是一方面pycharm专业版需要收费，另一方面还要多装个应用，所以我决定还是使用强大的vscode来开始python学习之路
-
+我看很多人学习python都用的pycharm，确实比较强大，但是一方面pycharm专业版需要收费，另一方面还要多装个应用，所以我决定还是使用强大的vscode来开始python学习之路   
 1. 下载vscode
 2. 下载python解释器 <https://www.python.org/>(建议安装python3) 并安装，配置环境变量， mac自带了python2.7 python3.8. 可以通过`whereis python`, `where python`, `python`, `python -V` 等来检测是否已经安装了python
 3. 在vscode中安装python插件
@@ -49,3 +48,39 @@ python项目如何在另一个环境上重新构建项目所需要的运行环�
 使用requirements.txt安装依赖的方式：
 
 `pip install -r requirements.txt`
+
+
+### Python SMTP发送邮件 <https://www.runoob.com/python/python-email.html>
+
+```python
+
+import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
+
+sender = "XXX@qq.com"
+receivers = ["XXX@outlook.com"]
+# 第三方 SMTP 服务
+mail_host = "smtp.qq.com"  # 设置服务器
+mail_user = "XXX"  # 用户名
+mail_pass = "XXX"  # 口令 什么是授权码，它又是如何设置？ -- https://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
+
+message = MIMEText("Python send mail test", "plain", "utf-8")
+message["From"] = Header("runoob", "utf-8")
+message["To"] = Header("测试", "utf-8")
+
+subject = "Python SMTP邮件测试"
+message["Subject"] = Header(subject, "utf-8")
+
+try:
+    smtpObj = smtplib.SMTP()
+    smtpObj.connect(mail_host, 25)  # 25 为 SMTP 端口号
+    smtpObj.login(mail_user, mail_pass)
+    smtpObj.sendmail(sender, receivers, message.as_string())
+    print("send mail successfully")
+except smtplib.SMTPException as e:
+    print("Error:", e)
+
+```
+
+![邮件发送成功](../assets/img/python-smtp.png)
