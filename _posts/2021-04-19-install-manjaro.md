@@ -262,3 +262,12 @@ python3版本下安装flask-0.10.1的包 :
 ## <https://lukesmith.xyz/>
 
 ## <vimtutor>
+
+
+
+### 虚拟机没有网络
+
+启动网卡： `sudo ip link set ens33 up` 
+查看：`ip link`
+动态分配ip: `sudo dhcpcd&`
+类似于开机启动：`systemctl enable dhcpcd.service`
