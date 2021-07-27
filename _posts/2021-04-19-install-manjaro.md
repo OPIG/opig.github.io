@@ -271,3 +271,55 @@ python3版本下安装flask-0.10.1的包 :
 查看：`ip link`
 动态分配ip: `sudo dhcpcd&`
 类似于开机启动：`systemctl enable dhcpcd.service`
+
+
+
+### 安装docker
+安装docker
+`sudo pacman -S docker`
+
+启动docker
+`sudo systemctl start docker`
+
+查看docker运行状态
+`sudo systmctl status docker`
+
+重启docker
+`sudo systemctl restart docker`
+
+添加阿里docker镜像加速
+```
+cd /etc/docker
+touch daemon.json
+
+{
+ "registry-mirrors": ["https://XXXXXX.mirrors.aliyucs.com"]
+}
+
+
+```
+
+
+安装docker-compose
+`sudo pacman -S docker-compose`
+
+拉取laradock源码
+git clone https://github.com/Laradock/laradock.git
+
+拷贝配置文件
+`cp .env.example .env`
+
+进入laradock代码根目录运行
+```
+启动nginx workspace
+sudo docker-compose up -d nginx workspace
+在这一步会经历漫长的等待时间，也许会有问题，可以尝试改一下 `.env` 文件中的 CHANGE_SOURCE=false 为 CHANGE_SOURCE=true
+
+进入docker环境根目录控制台
+sudo docker-compose exec workspace bash
+进入nginx控制台，在这里才可以使用nginx -t 等命令
+sudo docker-compose exec nginx bash
+
+```
+
+
