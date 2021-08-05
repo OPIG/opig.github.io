@@ -1,4 +1,4 @@
-# HTML5自定义属性对象Dataset
+# 1. HTML5自定义属性对象Dataset
 
 ```
 <a href="javascript:" data-id="2312">测试</a>
@@ -97,3 +97,45 @@ CSS代码如下：
 
 reference
 [HTML5自定义属性对象Dataset简介](https://www.zhangxinxu.com/wordpress/2011/06/html5%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7%E5%AF%B9%E8%B1%A1dataset%E7%AE%80%E4%BB%8B/)
+
+
+# 2. HTML5中判断横屏竖屏的方法(移动端)
+
+### CSS判断横屏竖屏
+写在同一个CSS中
+
+``` css
+@media screen and (orientation: portrait) {   
+  /*竖屏 css*/   
+}    
+@media screen and (orientation: landscape) {   
+  /*横屏 css*/   
+}
+
+```
+
+分开写在2个CSS中
+
+```css
+/* 竖屏 */
+<link rel="stylesheet" media="all and (orientation:portrait)" href="style1.css"> 
+
+/* 横屏 */
+<link rel="stylesheet" media="all and (orientation:landscape)" href="style2.css"> 
+
+```
+
+### JS判断横屏竖屏
+``` css
+//判断手机横竖屏状态：   
+window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {   
+    if (window.orientation === 180 || window.orientation === 0) {    
+        alert('竖屏状态！');   
+    }    
+    if (window.orientation === 90 || window.orientation === -90 ){    
+        alert('横屏状态！');   
+    }     
+}, false);
+
+```
+
