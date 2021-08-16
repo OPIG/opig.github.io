@@ -124,6 +124,26 @@ tags:
 
 ```
 
+###  while
+
+```js
+
+  function fibonacci(n) {
+    if(n<=1) return 1
+    let arr = [1,1]
+    let i = n-1
+    while(i>1){
+      let a = arr[arr.length - 2]
+      let b = arr[arr.length - 1]
+      arr.push(a+b)
+      i--
+    }
+    return arr[arr.length - 1]
+  }
+
+
+```
+
 
 ## reference
 

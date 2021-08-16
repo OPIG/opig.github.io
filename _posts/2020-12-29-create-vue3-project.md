@@ -23,10 +23,12 @@ tags:
 # Two. Creating a Project
   #### vue create
   To create a new project, run:
+  
   `vue create <Project name>`    
 
   #### Using the GUI
   `vue ui`
+
 The above command will open a browser window with a GUI that guides you through the project creation process. 
 
 ![vue3 ui create project finished](../assets/img/vue3-ui-finished.png)
