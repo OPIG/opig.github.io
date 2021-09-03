@@ -272,6 +272,15 @@ python3版本下安装flask-0.10.1的包 :
 动态分配ip: `sudo dhcpcd&`
 类似于开机启动：`systemctl enable dhcpcd.service`
 
+### 虚拟机起服务，通过主机ip+端口访问
+
+管理员权限打开VM
+编辑 --> 虚拟网络编辑器
+添加网络 --> VMnet8 NAT模式
+选中VMnet8 NAT模式 --> NAT设置
+添加主机端口(比如 8086)， 类型TCP，虚拟机Ip地址+端口号(比如8086)
+
+或者通过在主机添加nginx配置，请求主机地址转发到虚拟机地址。
 
 
 ### 安装docker
