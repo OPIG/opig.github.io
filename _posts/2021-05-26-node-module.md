@@ -37,4 +37,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+
+const notifier = require('node-notifier')
+
+// 打包速度分析
+const SpeedMeasureWebpack5Plugin = require('speed-measure-webpack5-plugin')
+
+<!-- 文件体积监控 -->
+const {BundleAnalyzerPlugin} require('webpack-bundle-analyzer')
 ```
