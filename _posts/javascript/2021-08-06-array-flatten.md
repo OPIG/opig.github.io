@@ -155,6 +155,27 @@ es6的扩展运算符能将二维数组变为一维
 
 ```
 
+#### 7. 原有数组的基础上面改
+
+实现数组拍平的方法；进阶：能不能不用返回一个新数组，就在原有数组的基础上面改？
+
+```js
+function flatArr(arr) {
+    for (let i = 0;;) {
+        if (arr[i] == null) break;
+        if (Array.isArray(arr[i])) {
+            const subArr = flatArr(arr[i])
+            arr.splice(i, 1, ...subArr)
+            i = i + subArr.length
+        } else {
+            i++
+        }
+    }
+    return arr
+}
+
+```
+
 
 ### reference
 [数组扁平化概念](https://www.cnblogs.com/wind-lanyan/p/9044130.html)

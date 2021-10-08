@@ -33,6 +33,7 @@ JSON.parse(JSON.stringify(str)) 深拷贝的问题：
 （6）不能处理正则
 
 
+[html常见面试题及答案]<https://blog.csdn.net/weixin_45102270/article/details/113064446> 什么是微格式，html5离线缓存， 拖拽释放(Drag and drop) API
 
 ---
 ### 跨域问题
