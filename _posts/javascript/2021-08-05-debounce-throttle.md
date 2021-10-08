@@ -46,7 +46,7 @@ const debounce = (func, wait, ...args) => {
       timeout = null;
     }, wait);
     if (callNow) {
-      func.apply(contenxt, args);
+      func.apply(context, args);
     }
   };
 };
