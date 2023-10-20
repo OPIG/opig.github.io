@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello Pwa</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="SHORTCUT ICON" href="https://www.trip.com/trip.ico" type="image/x-icon">
+
+</head>
+<body>
+    <h2>this is pwa</h2>
+    <div id="container">
+
+    </div>
+    <script>
+        window.addEventListener('load', () => {
+            // 判断是否兼容
+            if ('serviceWorker' in navigator) {
+                // 注册service worker
+                navigator.serviceWorker.register('./sw2.js').then(register => {
+                    console.log('SW2 registered ======', register);
+                }).catch(error => {
+                    console.log('SW2 register failed ======', error);
+                })
+            }
+        })
+    </script>
+</body>
+</html>

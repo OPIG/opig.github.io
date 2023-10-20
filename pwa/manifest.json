@@ -1,0 +1,13 @@
+{
+    "name": "Hello PWA",
+    "short_name": "Trip",
+    "icons": [{
+      "src": "https://pages.trip.com/images/business-partner/GOOGLE.png",
+        "sizes": "128x128",
+        "type": "image/png"
+      }],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "green",
+    "theme_color": "#3264ff"
+  }
